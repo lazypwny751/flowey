@@ -14,6 +14,11 @@ jobs:
       - name: Checkout repo
         uses: actions/checkout@v4
 
+      - name: Setup environment.
+        run: |
+          sudo apt install carton
+          carton install
+
       - name: Perl syntax check
         run: |
           perl -Mstrict -cw flowey.pl
