@@ -1,0 +1,19 @@
+name: Perl CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  syntax-check:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Perl syntax check
+        run: |
+          perl -Mstrict -cw flowey.pl
