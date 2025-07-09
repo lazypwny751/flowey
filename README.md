@@ -101,4 +101,5 @@ Or just open an issue if you have feedback or suggestions.
 This project is licensed under the terms of the [GNU GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.html).  
 See the [LICENSE](https://github.com/lazypwny751/flowey/blob/main/LICENSE) file for details.
 
-*Made with ❤️ and determination*
+---
+> *Made with ❤️ and determination*
