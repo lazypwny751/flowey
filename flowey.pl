@@ -75,9 +75,11 @@ if (!-f $meta_file) {
     die("Character file '$meta_file' does not exist.");
 }
 
+# main logic.
 pretty_print($msg);
 parse_section($meta_file, "data");
 
+# subroutine to pretty print a message
 sub pretty_print {
     my $text = shift;
 
@@ -90,6 +92,9 @@ sub pretty_print {
     }
 }
 
+# subroutine to parse a section from a file
+# It takes the file name and the section name as parameters
+# It prints the content of the section to STDOUT
 sub parse_section {
     my @params = @_;
 
