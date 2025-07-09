@@ -1,2 +1,3 @@
 local/
+target/
 **/*.png **/*.jpg

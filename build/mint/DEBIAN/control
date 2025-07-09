@@ -1,1 +1,9 @@
-Depends: perl
+Package: flowey
+Version: 1.0.0
+Section: utils
+Priority: optional
+Architecture: all
+Maintainer: lazypwny751
+Description: flowey is like cowsay but for undertale universe.
+Depends: perl-base, libgetopt-long-descriptive-perl
+Suggests: perl-doc

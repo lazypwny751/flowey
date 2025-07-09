@@ -1,0 +1,19 @@
+pkgname="flowey"
+pkgver="1.0.0"
+pkgrel=1
+pkgdesc="flowey is like cowsay but for the Undertale universe."
+arch=('any')
+url="https://github.com/lazypwny751/flowey"
+license=('MIT')
+depends=('perl' 'cpanminus')
+makedepends=()
+source=("https://example.com/flowey-$pkgver.tar.gz")
+sha256sums=('SKIP')
+
+package() {
+    :
+}
+
+post_install() {
+    : # install dependencies: cpanm --installdeps .
+}
