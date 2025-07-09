@@ -84,4 +84,21 @@ make mint    # Linux Mint package
 
 ---
 
+## 🤝 Contributing
+
+Contributions are welcome!
+
+1. Fork this repository
+2. Create your feature branch (`git checkout -b feature/cool-stuff`)
+3. Commit your changes (`git commit -m 'Add some cool stuff'`)
+4. Push to the branch (`git push origin feature/cool-stuff`)
+5. Open a pull request
+
+Or just open an issue if you have feedback or suggestions.
+
+## 📜 License
+
+This project is licensed under the terms of the [GNU GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.html).  
+See the [LICENSE](https://github.com/lazypwny751/flowey/blob/main/LICENSE) file for details.
+
 *Made with ❤️ and determination*
