@@ -1,1 +1,2 @@
-requires 'Getopt::Long::Descriptive';
+requires "Getopt::Long::Descriptive";
+requires "File::Find";

@@ -15,3 +15,6 @@ just use the carton.
 carton install
 carton exec perl flowey.pl
 ```
+
+## TODO:
+- Add pre indexed file search (chara.yml).
