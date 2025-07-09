@@ -1,2 +1,2 @@
 local/
-**/*.{png,jpg}
+**/*.png **/*.jpg
