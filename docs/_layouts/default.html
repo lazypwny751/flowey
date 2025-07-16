@@ -18,14 +18,14 @@
   <style>
     :root {
       --undertale-yellow: #fcff4a;
-      --undertale-green: #4a7c23;
-      --undertale-dark-green: #2d5016;
-      --undertale-blue: #87ceeb;
+      --undertale-blue: #4a90e2;
+      --undertale-dark-blue: #2d5a87;
       --undertale-red: #ff0000;
       --undertale-orange: #ffa500;
       --undertale-purple: #800080;
-      --underground-bg: #1a1a1a;
-      --text-light: #f4e4bc;
+      --background-dark: #1a1a2e;
+      --background-darker: #0f0f23;
+      --text-light: #eee;
       --border-gold: #daa520;
     }
 
@@ -34,67 +34,13 @@
     }
 
     body {
-      font-family: 'Pixel', 'Courier New', monospace;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       line-height: 1.6;
       margin: 0;
       padding: 0;
-      background: var(--underground-bg);
+      background: linear-gradient(135deg, var(--background-darker) 0%, var(--background-dark) 100%);
       color: var(--text-light);
       min-height: 100vh;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* Animated starfield background */
-    body::before {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(2px 2px at 20px 30px, var(--undertale-yellow), transparent),
-        radial-gradient(2px 2px at 40px 70px, var(--undertale-blue), transparent),
-        radial-gradient(1px 1px at 90px 40px, white, transparent),
-        radial-gradient(1px 1px at 130px 80px, var(--undertale-yellow), transparent),
-        radial-gradient(2px 2px at 160px 30px, white, transparent),
-        radial-gradient(1px 1px at 200px 60px, var(--undertale-blue), transparent),
-        radial-gradient(2px 2px at 240px 90px, var(--undertale-yellow), transparent),
-        radial-gradient(1px 1px at 280px 20px, white, transparent),
-        radial-gradient(1px 1px at 320px 50px, var(--undertale-yellow), transparent),
-        radial-gradient(2px 2px at 360px 80px, var(--undertale-blue), transparent);
-      background-repeat: repeat;
-      background-size: 400px 100px;
-      animation: twinkle 8s linear infinite;
-      z-index: -2;
-      opacity: 0.7;
-    }
-
-    /* Underground cave pattern */
-    body::after {
-      content: '';
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: 
-        radial-gradient(circle at 25% 25%, rgba(45, 80, 22, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 75% 75%, rgba(29, 53, 87, 0.2) 0%, transparent 50%),
-        radial-gradient(circle at 50% 100%, rgba(74, 124, 35, 0.1) 0%, transparent 80%);
-      animation: underground-pulse 12s ease-in-out infinite;
-      z-index: -1;
-    }
-
-    @keyframes twinkle {
-      0% { transform: translateX(0px); }
-      100% { transform: translateX(-400px); }
-    }
-
-    @keyframes underground-pulse {
-      0%, 100% { opacity: 0.3; }
-      50% { opacity: 0.7; }
     }
 
     .container {
@@ -105,35 +51,10 @@
 
     /* Header */
     .site-header {
-      background: linear-gradient(45deg, var(--undertale-dark-green), var(--undertale-green));
+      background: linear-gradient(135deg, var(--undertale-dark-blue), var(--undertale-blue));
       border-bottom: 3px solid var(--undertale-yellow);
       padding: 1rem 0;
       box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* Pixel-art decoration for header */
-    .site-header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--undertale-yellow) 0px,
-        var(--undertale-yellow) 8px,
-        transparent 8px,
-        transparent 16px
-      );
-      animation: pixel-scroll 2s linear infinite;
-    }
-
-    @keyframes pixel-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(16px); }
     }
 
     .site-title {
@@ -141,37 +62,15 @@
       text-decoration: none;
       font-size: 2rem;
       font-weight: bold;
-      text-shadow: 
-        2px 2px 0px var(--undertale-dark-green),
-        4px 4px 0px rgba(0,0,0,0.5);
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
       display: inline-flex;
       align-items: center;
       gap: 0.5rem;
-      font-family: 'Pixel', 'Courier New', monospace;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      position: relative;
-    }
-
-    .site-title::after {
-      content: '🌻';
-      animation: flowey-bounce 3s ease-in-out infinite;
-      margin-left: 0.5rem;
-    }
-
-    @keyframes flowey-bounce {
-      0%, 100% { transform: translateY(0px) rotate(0deg); }
-      25% { transform: translateY(-5px) rotate(-5deg); }
-      50% { transform: translateY(-8px) rotate(0deg); }
-      75% { transform: translateY(-3px) rotate(5deg); }
     }
 
     .site-title:hover {
       color: white;
       transition: color 0.3s ease;
-      text-shadow: 
-        2px 2px 0px var(--undertale-red),
-        4px 4px 0px rgba(255,0,0,0.5);
     }
 
     /* Navigation */
@@ -193,38 +92,15 @@
       text-decoration: none;
       padding: 0.5rem 1rem;
       border: 2px solid transparent;
-      border-radius: 0;
-      font-family: 'Pixel', 'Courier New', monospace;
-      text-transform: uppercase;
-      font-size: 0.9rem;
-      position: relative;
+      border-radius: 5px;
       transition: all 0.3s ease;
-      background: rgba(0,0,0,0.3);
-    }
-
-    .site-nav a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: var(--undertale-yellow);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-      z-index: -1;
-    }
-
-    .site-nav a:hover::before {
-      transform: scaleX(1);
     }
 
     .site-nav a:hover {
-      color: var(--undertale-dark-green);
+      background: var(--undertale-yellow);
+      color: var(--undertale-dark-blue);
       border-color: var(--undertale-yellow);
       font-weight: bold;
-      text-shadow: 1px 1px 0px rgba(0,0,0,0.5);
     }
 
     /* Main content */
@@ -233,135 +109,56 @@
       color: #333;
       margin: 2rem 0;
       padding: 2rem;
-      border-radius: 0;
-      box-shadow: 
-        0 0 0 4px black,
-        0 0 0 8px white,
-        0 0 0 12px black;
-      border: none;
-      position: relative;
-      font-family: 'Pixel', 'Courier New', monospace;
-    }
-
-    /* Undertale-style content border decoration */
-    .main-content::before {
-      content: '';
-      position: absolute;
-      top: -8px;
-      left: -8px;
-      right: -8px;
-      bottom: -8px;
-      background: 
-        linear-gradient(45deg, transparent 25%, var(--undertale-yellow) 25%),
-        linear-gradient(-45deg, transparent 25%, var(--undertale-yellow) 25%),
-        linear-gradient(45deg, var(--undertale-yellow) 75%, transparent 75%),
-        linear-gradient(-45deg, var(--undertale-yellow) 75%, transparent 75%);
-      background-size: 4px 4px;
-      background-position: 0 0, 0 2px, 2px -2px, -2px 0px;
-      z-index: -1;
-      animation: border-march 1s linear infinite;
-    }
-
-    @keyframes border-march {
-      0% { background-position: 0 0, 0 2px, 2px -2px, -2px 0px; }
-      100% { background-position: 4px 4px, 4px 6px, 6px 2px, 2px 4px; }
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      border: 3px solid var(--undertale-yellow);
     }
 
     /* Typography */
     h1, h2, h3, h4, h5, h6 {
-      color: var(--undertale-dark-green);
+      color: var(--undertale-dark-blue);
       margin-top: 2rem;
       margin-bottom: 1rem;
-      font-family: 'Pixel', 'Courier New', monospace;
-      text-transform: uppercase;
-      letter-spacing: 1px;
     }
 
     h1 {
-      border-bottom: 4px solid var(--undertale-yellow);
+      border-bottom: 3px solid var(--undertale-yellow);
       padding-bottom: 0.5rem;
-      text-shadow: 2px 2px 0px rgba(0,0,0,0.2);
-      position: relative;
-    }
-
-    h1::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--undertale-red) 0px,
-        var(--undertale-red) 8px,
-        var(--undertale-orange) 8px,
-        var(--undertale-orange) 16px,
-        var(--undertale-yellow) 16px,
-        var(--undertale-yellow) 24px,
-        var(--undertale-green) 24px,
-        var(--undertale-green) 32px,
-        var(--undertale-blue) 32px,
-        var(--undertale-blue) 40px,
-        var(--undertale-purple) 40px,
-        var(--undertale-purple) 48px
-      );
-      animation: rainbow-scroll 3s linear infinite;
-    }
-
-    @keyframes rainbow-scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(48px); }
     }
 
     h2 {
-      border-left: 8px solid var(--undertale-green);
+      border-left: 5px solid var(--undertale-blue);
       padding-left: 1rem;
-      background: rgba(74, 124, 35, 0.1);
-      padding: 0.5rem 0 0.5rem 1rem;
     }
 
     /* Code blocks */
     pre, code {
-      font-family: 'Pixel', 'Courier New', monospace;
-      background: #000;
-      color: #0f0;
-      border: 2px solid #0f0;
+      font-family: 'Courier New', monospace;
+      background: #2d3748;
+      color: #e2e8f0;
     }
 
     pre {
       padding: 1rem;
-      border-radius: 0;
+      border-radius: 5px;
       overflow-x: auto;
-      position: relative;
-      box-shadow: 
-        inset 0 0 0 2px #000,
-        inset 0 0 0 4px #0f0,
-        0 0 10px rgba(0, 255, 0, 0.3);
-    }
-
-    /* Terminal-style prompt */
-    pre::before {
-      content: '> ';
-      color: var(--undertale-yellow);
-      font-weight: bold;
+      border-left: 4px solid var(--undertale-yellow);
     }
 
     code {
       padding: 0.2rem 0.4rem;
-      border-radius: 0;
+      border-radius: 3px;
       font-size: 0.9em;
-      box-shadow: 1px 1px 0 rgba(0, 255, 0, 0.5);
     }
 
     /* Links */
     a {
-      color: var(--undertale-green);
+      color: var(--undertale-blue);
       text-decoration: underline;
     }
 
     a:hover {
-      color: var(--undertale-dark-green);
+      color: var(--undertale-dark-blue);
       font-weight: bold;
     }
 
@@ -379,7 +176,7 @@
     }
 
     th {
-      background: var(--undertale-green);
+      background: var(--undertale-blue);
       color: white;
       font-weight: bold;
     }
@@ -390,37 +187,12 @@
 
     /* Footer */
     .site-footer {
-      background: var(--undertale-dark-green);
+      background: var(--undertale-dark-blue);
       color: var(--text-light);
       text-align: center;
       padding: 2rem 0;
       margin-top: 3rem;
-      border-top: 4px solid var(--undertale-yellow);
-      position: relative;
-      font-family: 'Pixel', 'Courier New', monospace;
-    }
-
-    /* Pixel art decoration for footer */
-    .site-footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 8px;
-      background: repeating-linear-gradient(
-        90deg,
-        var(--undertale-yellow) 0px,
-        var(--undertale-yellow) 16px,
-        var(--undertale-green) 16px,
-        var(--undertale-green) 32px
-      );
-      animation: footer-pixels 4s linear infinite;
-    }
-
-    @keyframes footer-pixels {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-32px); }
+      border-top: 3px solid var(--undertale-yellow);
     }
 
     .footer-content {
@@ -435,18 +207,6 @@
       font-style: italic;
       font-size: 0.9rem;
       opacity: 0.8;
-      animation: determination-glow 2s ease-in-out infinite alternate;
-    }
-
-    @keyframes determination-glow {
-      0% { 
-        color: var(--text-light);
-        text-shadow: none;
-      }
-      100% { 
-        color: var(--undertale-yellow);
-        text-shadow: 0 0 10px rgba(252, 255, 74, 0.8);
-      }
     }
 
     /* Responsive design */
@@ -482,13 +242,6 @@
       margin: 1rem 0;
     }
 
-    /* Loading animation for fun */
-    @keyframes determination {
-      0% { opacity: 0.5; }
-      50% { opacity: 1; }
-      100% { opacity: 0.5; }
-    }
-
     .determination-pulse {
       animation: determination 2s infinite;
     }
@@ -513,20 +266,6 @@
   </header>
 
   <main class="container">
-    <!-- Animated stars -->
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    <div class="star"></div>
-    
-    <!-- Pixel overlay -->
-    <div class="pixel-overlay"></div>
-    
     <div class="main-content">
       {{ content }}
     </div>
