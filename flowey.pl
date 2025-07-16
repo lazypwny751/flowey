@@ -5,15 +5,24 @@ use warnings;
 use Getopt::Long::Descriptive;
 use File::Find qw(find);
 
+our $VERSION = '1.0.0';
+
 my ($opt, $usage) = describe_options(
     "flowey %o <message>",
     [ "assets|a=s",  "Set assets directory.", { default => "/usr/share/flowey" } ],
     [ "character|c=s", "Set character.", { default => "ferris" } ],
+    [ "version|v",   "Show version information" ],
     [ "help|h",  "Show this help message" ],
 );
 
-print($usage) and exit(0) if $opt->help;
-
+# Parse command line options
+if ($opt->{help}) {
+    print $usage;
+    exit(0);
+} elsif ($opt->{version}) {
+    print "flowey version $VERSION\n";
+    exit(0);
+}
 # random quotes from Undertale
 # Source: https://undertale.fandom.com/wiki/Undertale_Wiki
 my @rand_msg = (
@@ -49,6 +58,11 @@ my @rand_msg = (
     "You spare him, even though he wouldn’t have spared you.",
 );
 
+# Check if the assets directory exists
+if (!-d $opt->assets) {
+    my $dir = $opt->assets;
+    die("Assets directory '$dir' does not exist.");
+}
 our $path = $opt->assets;
 
 # Message from command line arguments or random selection
@@ -59,6 +73,9 @@ if (@ARGV) {
     $msg = $rand_msg[rand @rand_msg];
 }
 
+# Find the character file in the assets directory
+# It searches for a file named "<character>.flowey" or just "<character>"
+# and sets the variable $meta_file to its path.
 my $meta_file;
 find(
     sub {
@@ -75,10 +92,11 @@ if (!-f $meta_file) {
     die("Character file '$meta_file' does not exist.");
 }
 
-# main logic.
+# === MAIN LOGIC ===
 pretty_print($msg);
 parse_section($meta_file, "data");
 
+# === SUBROUTINES ===
 # subroutine to pretty print a message
 sub pretty_print {
     my $text = shift;

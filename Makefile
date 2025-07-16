@@ -1,30 +1,27 @@
-VER := 1.0.0
-SRC := .
-OUT := target
+VERSION := 1.0.0
+SOURCE := .
+PREFIX := target
 
 install:
-	mkdir -p $(OUT)/usr/bin $(OUT)/usr/share/flowey
+	mkdir -p $(PREFIX)/usr/bin $(PREFIX)/usr/share/flowey
 
-	cp $(SRC)/flowey.pl $(OUT)/usr/bin/flowey
-	cp -r $(SRC)/flowies $(OUT)/usr/share/flowey
+	cp $(SOURCE)/flowey.pl $(PREFIX)/usr/bin/flowey
+	cp -r $(SOURCE)/flowies $(PREFIX)/usr/share/flowey
 
-	chmod +x $(OUT)/usr/bin/flowey
+	chmod +x $(PREFIX)/usr/bin/flowey
 
 mint: install
-	cp -r $(SRC)/build/mint/* $(OUT)
-	dpkg-deb --build $(OUT) $(OUT)/flowey-mint_$(VER)_all.deb
+	cp -r $(SOURCE)/build/mint/* $(PREFIX)
+	dpkg-deb --build $(PREFIX) $(PREFIX)/flowey-mint_$(VERSION)_all.deb
 
 ubuntu: install
-	cp -r $(SRC)/build/ubuntu/* $(OUT)
-	dpkg-deb --build $(OUT) $(OUT)/flowey-ubuntu_$(VER)_all.deb
+	cp -r $(SOURCE)/build/ubuntu/* $(PREFIX)
+	dpkg-deb --build $(PREFIX) $(PREFIX)/flowey-ubuntu_$(VERSION)_all.deb
 
 debian: install
-	cp -r $(SRC)/build/debian/* $(OUT)
-	dpkg-deb --build $(OUT) $(OUT)/flowey-debian_$(VER)_all.deb
+	cp -r $(SOURCE)/build/debian/* $(PREFIX)
+	dpkg-deb --build $(PREFIX) $(PREFIX)/flowey-debian_$(VERSION)_all.deb
 
 arch: install
 
-clean:
-	rm -rf $(OUT)
-
-.PHONY: install clean
+.PHONY: install mint ubuntu debian arch
