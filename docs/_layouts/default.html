@@ -9,68 +9,142 @@
   <!-- Undertale-inspired favicon -->
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌻</text></svg>">
   
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Determination+Mono:wght@400;700&family=Pixel:wght@400;700&display=swap" rel="stylesheet">
-  
   <!-- Custom Undertale CSS -->
   <link rel="stylesheet" href="{{ '/assets/undertale.css' | relative_url }}">
   
   <style>
     :root {
       --undertale-yellow: #fcff4a;
-      --undertale-blue: #4a90e2;
-      --undertale-dark-blue: #2d5a87;
+      --undertale-white: #ffffff;
+      --undertale-gray: #cccccc;
       --undertale-red: #ff0000;
-      --undertale-orange: #ffa500;
-      --undertale-purple: #800080;
-      --background-dark: #1a1a2e;
-      --background-darker: #0f0f23;
-      --text-light: #eee;
-      --border-gold: #daa520;
+      --undertale-cyan: #00ffff;
+      --background-black: #000000;
+      --background-dark: #111111;
+      --text-light: #ffffff;
+      --text-gray: #cccccc;
+      --border-white: #ffffff;
     }
 
     * {
+      margin: 0;
+      padding: 0;
       box-sizing: border-box;
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-      line-height: 1.6;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, var(--background-darker) 0%, var(--background-dark) 100%);
+      font-family: 'Courier New', monospace;
+      background: var(--background-black);
       color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
       min-height: 100vh;
+    }
+
+    /* Simple starfield background */
+    .starfield {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: 
+        radial-gradient(1px 1px at 20px 30px, white, transparent),
+        radial-gradient(1px 1px at 40px 70px, white, transparent),
+        radial-gradient(1px 1px at 90px 40px, white, transparent),
+        radial-gradient(1px 1px at 130px 80px, white, transparent),
+        radial-gradient(1px 1px at 160px 30px, white, transparent),
+        radial-gradient(1px 1px at 200px 90px, white, transparent),
+        radial-gradient(1px 1px at 240px 50px, white, transparent),
+        radial-gradient(1px 1px at 280px 10px, white, transparent),
+        radial-gradient(1px 1px at 320px 60px, white, transparent),
+        radial-gradient(1px 1px at 360px 100px, white, transparent);
+      background-size: 400px 150px;
+      animation: stars-move 30s linear infinite;
+      opacity: 0.3;
+    }
+
+    @keyframes stars-move {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-400px); }
     }
 
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 0 20px;
+      padding: 2rem;
+      position: relative;
+      z-index: 1;
     }
 
     /* Header */
     .site-header {
-      background: linear-gradient(135deg, var(--undertale-dark-blue), var(--undertale-blue));
-      border-bottom: 3px solid var(--undertale-yellow);
-      padding: 1rem 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      text-align: center;
+      padding: 2rem 0;
+      border-bottom: 2px solid var(--border-white);
+      margin-bottom: 2rem;
     }
 
     .site-title {
+      font-size: 2.5rem;
       color: var(--undertale-yellow);
+      margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 0px #000;
       text-decoration: none;
-      font-size: 2rem;
-      font-weight: bold;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
+      display: inline-block;
     }
 
     .site-title:hover {
-      color: white;
-      transition: color 0.3s ease;
+      color: var(--undertale-white);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--undertale-white);
+      margin: 1.5rem 0 1rem 0;
+    }
+
+    h1 {
+      color: var(--undertale-yellow);
+      border-bottom: 1px solid var(--border-white);
+      padding-bottom: 0.5rem;
+    }
+
+    h2 {
+      border-bottom: 1px solid var(--text-gray);
+      padding-bottom: 0.3rem;
+    }
+
+    p, li {
+      color: var(--text-gray);
+      margin-bottom: 1rem;
+    }
+
+    a {
+      color: var(--undertale-cyan);
+      text-decoration: none;
+    }
+
+    a:hover {
+      color: var(--undertale-yellow);
+      text-decoration: underline;
+    }
+
+    code {
+      background: var(--background-dark);
+      color: var(--undertale-yellow);
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+
+    pre {
+      background: var(--background-dark);
+      border: 1px solid var(--border-white);
+      padding: 1rem;
+      overflow-x: auto;
+      margin: 1rem 0;
     }
 
     /* Navigation */
@@ -85,208 +159,108 @@
       display: flex;
       gap: 1rem;
       flex-wrap: wrap;
+      justify-content: center;
     }
 
     .site-nav a {
       color: var(--text-light);
-      text-decoration: none;
       padding: 0.5rem 1rem;
-      border: 2px solid transparent;
-      border-radius: 5px;
+      border: 1px solid var(--border-white);
+      text-decoration: none;
       transition: all 0.3s ease;
     }
 
     .site-nav a:hover {
-      background: var(--undertale-yellow);
-      color: var(--undertale-dark-blue);
-      border-color: var(--undertale-yellow);
-      font-weight: bold;
+      background: var(--border-white);
+      color: var(--background-black);
     }
 
-    /* Main content */
-    .main-content {
-      background: white;
-      color: #333;
-      margin: 2rem 0;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-      border: 3px solid var(--undertale-yellow);
+    main {
+      min-height: 60vh;
     }
 
-    /* Typography */
-    h1, h2, h3, h4, h5, h6 {
-      color: var(--undertale-dark-blue);
-      margin-top: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    h1 {
-      border-bottom: 3px solid var(--undertale-yellow);
-      padding-bottom: 0.5rem;
-    }
-
-    h2 {
-      border-left: 5px solid var(--undertale-blue);
-      padding-left: 1rem;
-    }
-
-    /* Code blocks */
-    pre, code {
-      font-family: 'Courier New', monospace;
-      background: #2d3748;
-      color: #e2e8f0;
-    }
-
-    pre {
-      padding: 1rem;
-      border-radius: 5px;
-      overflow-x: auto;
-      border-left: 4px solid var(--undertale-yellow);
-    }
-
-    code {
-      padding: 0.2rem 0.4rem;
-      border-radius: 3px;
-      font-size: 0.9em;
-    }
-
-    /* Links */
-    a {
-      color: var(--undertale-blue);
-      text-decoration: underline;
-    }
-
-    a:hover {
-      color: var(--undertale-dark-blue);
-      font-weight: bold;
+    footer {
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid var(--border-white);
+      margin-top: 3rem;
+      color: var(--text-gray);
     }
 
     /* Tables */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin: 1.5rem 0;
+      margin: 1rem 0;
+      background: var(--background-dark);
     }
 
     th, td {
-      border: 1px solid #dee2e6;
-      padding: 0.75rem;
+      border: 1px solid var(--border-white);
+      padding: 0.5rem;
       text-align: left;
+      color: var(--text-gray);
     }
 
     th {
-      background: var(--undertale-blue);
-      color: white;
+      background: var(--background-black);
+      color: var(--text-light);
       font-weight: bold;
     }
 
-    tr:nth-child(even) {
-      background-color: #f8f9fa;
+    /* Lists */
+    ul, ol {
+      color: var(--text-gray);
+      padding-left: 2rem;
     }
 
-    /* Footer */
-    .site-footer {
-      background: var(--undertale-dark-blue);
-      color: var(--text-light);
-      text-align: center;
-      padding: 2rem 0;
-      margin-top: 3rem;
-      border-top: 3px solid var(--undertale-yellow);
+    li {
+      margin-bottom: 0.5rem;
     }
 
-    .footer-content {
-      display: flex;
-      justify-content: space-around;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .footer-quote {
-      font-style: italic;
-      font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    /* Responsive design */
+    /* Responsive */
     @media (max-width: 768px) {
-      .site-nav ul {
-        flex-direction: column;
-      }
-      
-      .main-content {
-        margin: 1rem 0;
+      .container {
         padding: 1rem;
       }
       
-      .footer-content {
-        flex-direction: column;
+      .site-title {
+        font-size: 2rem;
       }
-    }
-
-    /* Special elements */
-    .highlight-box {
-      background: linear-gradient(135deg, var(--undertale-yellow), #fff8dc);
-      border: 3px solid var(--undertale-green);
-      padding: 1.5rem;
-      border-radius: 10px;
-      margin: 1.5rem 0;
-    }
-
-    .warning-box {
-      background: linear-gradient(135deg, #ffeeee, #ffe6e6);
-      border: 3px solid var(--undertale-red);
-      padding: 1rem;
-      border-radius: 8px;
-      margin: 1rem 0;
-    }
-
-    .determination-pulse {
-      animation: determination 2s infinite;
+      
+      .site-nav ul {
+        gap: 0.5rem;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container">
-      <a href="{{ '/' | relative_url }}" class="site-title">
-        🌻 {{ site.title }}
-      </a>
+  <div class="starfield"></div>
+  
+  <div class="container">
+    <header class="site-header">
+      <a href="{{ '/' | relative_url }}" class="site-title">{{ site.title | default: site.github.repository_name }}</a>
+      {% if site.description %}
+        <p style="color: var(--text-gray); margin-top: 0.5rem;">{{ site.description }}</p>
+      {% endif %}
+      
       <nav class="site-nav">
         <ul>
           <li><a href="{{ '/' | relative_url }}">Home</a></li>
-          <li><a href="{{ '/installation/' | relative_url }}">Installation</a></li>
-          <li><a href="{{ '/usage/' | relative_url }}">Usage</a></li>
-          <li><a href="{{ '/characters/' | relative_url }}">Characters</a></li>
-          <li><a href="https://github.com/lazypwny751/flowey" target="_blank">GitHub 📁</a></li>
+          <li><a href="{{ '/installation' | relative_url }}">Installation</a></li>
+          <li><a href="{{ '/usage' | relative_url }}">Usage</a></li>
+          <li><a href="{{ '/characters' | relative_url }}">Characters</a></li>
         </ul>
       </nav>
-    </div>
-  </header>
+    </header>
 
-  <main class="container">
-    <div class="main-content">
+    <main>
       {{ content }}
-    </div>
-  </main>
+    </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <div class="footer-content">
-        <div>
-          <p>&copy; 2024 <a href="https://github.com/lazypwny751" style="color: var(--undertale-yellow);">lazypwny751</a></p>
-          <p>Licensed under GNU GPLv3</p>
-        </div>
-        <div class="footer-quote determination-pulse">
-          <p><em>"Stay determined!"</em></p>
-        </div>
-        <div>
-          <p>🌻 Made with ❤️ and determination</p>
-          <p>Inspired by <strong>Undertale</strong> by Toby Fox</p>
-        </div>
-      </div>
-    </div>
-  </footer>
+    <footer>
+      <p>&copy; {{ 'now' | date: "%Y" }} {{ site.title }}. Stay determined! ❤</p>
+    </footer>
+  </div>
 </body>
 </html>
