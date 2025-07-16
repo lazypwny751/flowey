@@ -88,38 +88,61 @@ layout: default
       text-decoration: underline;
     }
     
-    /* GitHub ribbon */
-    .github-ribbon {
+    /* Sans GitHub button */
+    .sans-github-button {
       position: fixed;
-      top: 0;
-      right: 0;
+      top: 20px;
+      right: 20px;
       z-index: 1000;
-    }
-    
-    .github-ribbon a {
-      display: block;
-      width: 200px;
-      height: 200px;
       background: #000;
-      color: #fff;
+      border: 2px solid #fff;
+      border-radius: 8px;
+      padding: 10px 15px;
       text-decoration: none;
+      color: #fff;
       font-family: 'Courier New', monospace;
-      font-size: 14px;
-      text-align: center;
-      line-height: 1.2;
-      padding: 50px 0 0 0;
-      transform: rotate(45deg) translate(50px, -50px);
-      border: 1px solid #fff;
+      font-size: 12px;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
     }
     
-    .github-ribbon a:hover {
-      background: #222;
+    .sans-github-button:hover {
+      background: #fff;
+      color: #000;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.6);
+      transform: scale(1.05);
+    }
+    
+    .sans-ascii {
+      display: block;
+      margin-bottom: 5px;
+      white-space: pre;
+      font-size: 10px;
+      line-height: 1;
+      text-align: center;
+    }
+    
+    .button-text {
+      text-align: center;
+      font-weight: bold;
+      font-size: 11px;
     }
     
     /* Responsive design */
     @media (max-width: 768px) {
-      .github-ribbon {
-        display: none;
+      .sans-github-button {
+        top: 10px;
+        right: 10px;
+        padding: 8px 12px;
+        font-size: 10px;
+      }
+      
+      .sans-ascii {
+        font-size: 8px;
+      }
+      
+      .button-text {
+        font-size: 9px;
       }
       
       .site-nav a {
@@ -134,12 +157,16 @@ layout: default
   </style>
 </head>
 <body>
-  <!-- GitHub ribbon -->
-  <div class="github-ribbon">
-    <a href="https://github.com/lazypwny751/flowey">
-      Fork me on<br>GitHub
-    </a>
-  </div>
+  <!-- Sans GitHub button -->
+  <a href="https://github.com/lazypwny751/flowey" class="sans-github-button" target="_blank">
+    <div class="sans-ascii">💀
+╭─╮ ╭─╮
+│ ● │ ●│
+╰─┬─┴─┬─╯
+  │   │
+  ╰───╯</div>
+    <div class="button-text">FORK ON GITHUB</div>
+  </a>
   
   <!-- Site header -->
   <header class="site-header">
