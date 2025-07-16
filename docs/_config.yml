@@ -4,10 +4,15 @@ description: A delightful ASCII art tool inspired by cowsay but themed around th
 url: "https://lazypwny751.github.io"
 baseurl: "/flowey"
 
-# Theme settings
-remote_theme: pages-themes/minimal@v0.2.0
+# Repository information (required for GitHub Pages)
+repository: lazypwny751/flowey
+
+# Theme settings - using no theme for custom styling
+theme: null
 plugins:
-- jekyll-remote-theme
+- jekyll-feed
+- jekyll-sitemap
+- jekyll-seo-tag
 
 # Site settings
 author:
