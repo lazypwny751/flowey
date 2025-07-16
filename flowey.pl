@@ -1,5 +1,15 @@
 #!/usr/bin/env perl
 
+# flowey.pl - A simple character viewer for Undertale characters
+# This script allows you to view character files in the Flowey format.
+# It supports various command line options to customize the behavior.
+# It can generate new character files, list available characters, and display random messages.
+
+# TODO:
+#   - Implement character viewing functionality.
+#   - Rewrite pretty_print to make better formatting.
+#   - Add more character files to the assets directory.
+
 use strict;
 use warnings;
 use Getopt::Long::Descriptive;
@@ -155,10 +165,26 @@ our $path = $opt->assets;
 
 # Message from command line arguments or random selection
 my $msg;
+# if (@ARGV) {
+#     $msg = "@ARGV";
+# } else {
+#     $msg = $rand_msg[rand @rand_msg];
+# }
+
 if (@ARGV) {
-    $msg = "@ARGV";
+    chomp($msg = "@ARGV");
+} elsif (!-t STDIN) {
+    # local $/; # slurp mode. 
+    $msg = <STDIN>;
+    chomp $msg if defined $msg;
 } else {
-    $msg = $rand_msg[rand @rand_msg];
+    $msg = $rand_msg[ int(rand @rand_msg) ];
+}
+
+# If the message is empty, set a default message
+# This is used when no message is provided via command line or stdin.
+if ($msg eq '') {
+    $msg = "You feel a strange presence...";
 }
 
 # Find the character file in the assets directory
