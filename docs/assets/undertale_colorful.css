@@ -1,69 +1,74 @@
-/* Minimal Undertale-themed styles for Flowey documentation */
-/* Clean black theme with simple starfield effect */
+/* Undertale-themed custom styles for Flowey documentation */
+/* Black theme with simple starfield effect */
 
-/* Minimal color palette - grayscale + yellow accent only */
+/* SOUL colors from Undertale - Dark theme optimized palette */
 :root {
-  --accent-yellow: #ffd700;
+  --soul-red: #ff4444;        /* Determination - slightly softer red */
+  --soul-cyan: #44ccff;       /* Patience - darker cyan for readability */
+  --soul-yellow: #ffdd44;     /* Justice - softer yellow */
+  --soul-orange: #ff8844;     /* Bravery - readable orange */
+  --soul-purple: #aa44ff;     /* Perseverance - darker purple */
+  --soul-green: #44ff88;      /* Kindness - readable green */
+  --soul-white: #ffffff;      /* Monster soul */
   --text-white: #ffffff;
-  --text-light: #e0e0e0;
-  --text-medium: #b0b0b0;
-  --text-dark: #808080;
+  --text-gray: #cccccc;
+  --text-light-gray: #dddddd;
+  --text-dark-gray: #999999;
   --background-black: #000000;
-  --background-dark: #1a1a1a;
-  --background-medium: #2a2a2a;
-  --border-light: #404040;
-  --border-medium: #606060;
+  --background-dark: #111111;
+  --background-darker: #0a0a0a;
+  --border-color: #444444;
 }
 
 /* Override any existing body styles */
 body {
   background: var(--background-black) !important;
-  color: var(--text-light) !important;
+  color: var(--text-white) !important;
 }
 
-/* Clean code blocks */
+/* Battle box styling for code blocks */
 .battle-box {
-  background: var(--background-dark);
-  border: 1px solid var(--border-light);
+  background: var(--background-black);
+  border: 2px solid var(--text-white);
   padding: 1rem;
   font-family: 'Courier New', monospace;
-  color: var(--text-light);
+  color: var(--text-white);
   margin: 1rem 0;
   position: relative;
 }
 
 .battle-box::before {
   content: "❤";
-  color: var(--accent-yellow);
+  color: var(--soul-red);
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
   font-size: 1.2rem;
 }
 
-/* Sans's minimal style */
+/* Sans's lazy style boxes */
 .sans-box {
   background: var(--background-dark);
-  border-left: 3px solid var(--text-medium);
+  border-left: 3px solid var(--soul-cyan);
   padding: 1rem;
   margin: 1rem 0;
   font-style: italic;
-  color: var(--text-light);
+  color: var(--text-light-gray);
 }
 
 .sans-box::before {
   content: "💀 ";
   font-style: normal;
-  color: var(--text-medium);
+  color: var(--soul-cyan);
 }
 
-/* Papyrus's clean style */
+/* Papyrus's enthusiastic boxes */
 .papyrus-box {
   background: var(--background-dark);
-  border: 1px solid var(--border-medium);
+  border: 2px solid var(--soul-orange);
   padding: 1.5rem;
   margin: 1.5rem 0;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -71,16 +76,16 @@ body {
 .papyrus-box::before {
   content: "🦴 ";
   font-size: 1.2rem;
-  color: var(--text-medium);
+  color: var(--soul-orange);
 }
 
-/* Flowey's simple style */
+/* Flowey's sinister style */
 .flowey-textbox {
-  background: var(--background-dark);
-  border: 1px solid var(--accent-yellow);
+  background: var(--background-black);
+  border: 2px solid var(--soul-yellow);
   padding: 1.5rem;
   margin: 1.5rem 0;
-  color: var(--accent-yellow);
+  color: var(--soul-yellow);
   font-style: italic;
   text-align: center;
 }
@@ -94,10 +99,10 @@ body {
 /* Toriel's caring style */
 .toriel-box {
   background: var(--background-dark);
-  border: 1px solid var(--border-medium);
+  border: 2px solid var(--soul-purple);
   padding: 1.5rem;
   margin: 1.5rem 0;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   font-style: italic;
 }
 
@@ -105,32 +110,32 @@ body {
   content: "🐐 ";
   font-style: normal;
   font-size: 1.2rem;
-  color: var(--text-medium);
+  color: var(--soul-purple);
 }
 
 /* Asgore's royal style */
 .asgore-box {
   background: var(--background-dark);
-  border: 1px solid var(--accent-yellow);
+  border: 2px solid var(--soul-yellow);
   padding: 2rem;
   margin: 2rem 0;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   text-align: center;
 }
 
 .asgore-box::before {
   content: "👑 ";
   font-size: 1.5rem;
-  color: var(--accent-yellow);
+  color: var(--soul-yellow);
 }
 
 /* Frisk's determination style */
 .frisk-box {
   background: var(--background-dark);
-  border: 1px solid var(--border-medium);
+  border: 2px solid var(--soul-red);
   padding: 1.5rem;
   margin: 1.5rem 0;
-  color: var(--text-light);
+  color: var(--text-light-gray);
   font-weight: bold;
   text-align: center;
 }
@@ -138,32 +143,33 @@ body {
 .frisk-box::before {
   content: "👤 * ";
   font-weight: normal;
-  color: var(--text-medium);
+  color: var(--soul-red);
 }
 
-/* Simple button effect */
+/* Determination button effect */
 .determination-btn {
-  background: var(--background-dark);
-  color: var(--text-light);
-  border: 1px solid var(--border-medium);
+  background: var(--soul-red);
+  color: var(--text-white);
+  border: 2px solid var(--text-white);
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
   transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
 .determination-btn:hover {
-  background: var(--background-medium);
-  border-color: var(--accent-yellow);
-  color: var(--accent-yellow);
+  background: var(--background-black);
+  color: var(--soul-red);
+  border-color: var(--soul-red);
 }
 
-/* Simple SAVE point */
+/* SAVE point styling */
 .save-point {
-  background: var(--background-dark);
-  border: 1px solid var(--accent-yellow);
+  background: var(--soul-yellow);
+  border: 2px solid var(--text-white);
   padding: 1rem;
   margin: 2rem auto;
   text-align: center;
@@ -172,11 +178,11 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--accent-yellow);
+  color: var(--background-black);
   font-weight: bold;
 }
 
-/* Clean character grid */
+/* Character showcase grid */
 .character-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -186,10 +192,10 @@ body {
 
 .character-card {
   background: var(--background-dark);
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--text-white);
   padding: 1rem;
   text-align: center;
-  color: var(--text-medium);
+  color: var(--text-gray);
 }
 
 .character-card h3 {
@@ -197,19 +203,19 @@ body {
   margin-bottom: 0.5rem;
 }
 
-/* Simple ASCII containers */
+/* ASCII art containers */
 .ascii-container {
-  background: var(--background-dark);
-  color: var(--text-light);
+  background: var(--background-black);
+  color: var(--soul-cyan);
   font-family: 'Courier New', monospace;
   padding: 1rem;
-  border: 1px solid var(--border-light);
+  border: 1px solid var(--soul-cyan);
   overflow-x: auto;
   white-space: pre;
   line-height: 1.2;
 }
 
-/* Clean table styling */
+/* Table styling */
 table {
   width: 100%;
   border-collapse: collapse;
@@ -218,27 +224,28 @@ table {
 }
 
 th, td {
-  border: 1px solid var(--border-light);
-  padding: 0.75rem;
+  border: 1px solid var(--border-color);
+  padding: 0.5rem;
   text-align: left;
-  color: var(--text-medium);
+  color: var(--text-light-gray);
 }
 
 th {
-  background: var(--background-medium);
-  color: var(--text-white);
+  background: var(--background-darker);
+  color: var(--soul-yellow);
   font-weight: bold;
+  border: 1px solid var(--soul-yellow);
 }
 
-/* Clean lists */
+/* Lists */
 ul, ol {
-  color: var(--text-medium);
+  color: var(--text-light-gray);
   padding-left: 2rem;
 }
 
 li {
   margin-bottom: 0.5rem;
-  color: var(--text-medium);
+  color: var(--text-light-gray);
 }
 
 /* Responsive improvements */

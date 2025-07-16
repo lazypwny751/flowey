@@ -14,22 +14,17 @@
   
   <style>
     :root {
-      --undertale-yellow: #ffdd44;
-      --undertale-white: #ffffff;
-      --undertale-gray: #cccccc;
-      --undertale-light-gray: #dddddd;
-      --undertale-red: #ff4444;
-      --undertale-cyan: #44ccff;
-      --undertale-orange: #ff8844;
-      --undertale-purple: #aa44ff;
-      --undertale-green: #44ff88;
+      /* Minimal color palette - only grayscale + yellow accent */
+      --accent-yellow: #ffd700;
+      --text-white: #ffffff;
+      --text-light: #e0e0e0;
+      --text-medium: #b0b0b0;
+      --text-dark: #808080;
       --background-black: #000000;
-      --background-dark: #111111;
-      --background-darker: #0a0a0a;
-      --text-light: #ffffff;
-      --text-gray: #cccccc;
-      --border-white: #ffffff;
-      --border-gray: #444444;
+      --background-dark: #1a1a1a;
+      --background-medium: #2a2a2a;
+      --border-light: #404040;
+      --border-medium: #606060;
     }
 
     * {
@@ -48,7 +43,7 @@
       min-height: 100vh;
     }
 
-    /* Simple starfield background */
+    /* Minimal starfield background */
     .starfield {
       position: fixed;
       top: 0;
@@ -57,19 +52,13 @@
       height: 100%;
       z-index: -1;
       background: 
-        radial-gradient(1px 1px at 20px 30px, white, transparent),
-        radial-gradient(1px 1px at 40px 70px, white, transparent),
-        radial-gradient(1px 1px at 90px 40px, white, transparent),
-        radial-gradient(1px 1px at 130px 80px, white, transparent),
-        radial-gradient(1px 1px at 160px 30px, white, transparent),
-        radial-gradient(1px 1px at 200px 90px, white, transparent),
-        radial-gradient(1px 1px at 240px 50px, white, transparent),
-        radial-gradient(1px 1px at 280px 10px, white, transparent),
-        radial-gradient(1px 1px at 320px 60px, white, transparent),
-        radial-gradient(1px 1px at 360px 100px, white, transparent);
+        radial-gradient(0.5px 0.5px at 50px 50px, #333, transparent),
+        radial-gradient(0.5px 0.5px at 150px 100px, #333, transparent),
+        radial-gradient(0.5px 0.5px at 250px 30px, #333, transparent),
+        radial-gradient(0.5px 0.5px at 350px 80px, #333, transparent);
       background-size: 400px 150px;
-      animation: stars-move 30s linear infinite;
-      opacity: 0.3;
+      animation: stars-move 60s linear infinite;
+      opacity: 0.4;
     }
 
     @keyframes stars-move {
@@ -89,72 +78,72 @@
     .site-header {
       text-align: center;
       padding: 2rem 0;
-      border-bottom: 2px solid var(--border-gray);
+      border-bottom: 1px solid var(--border-light);
       margin-bottom: 2rem;
     }
 
     .site-title {
       font-size: 2.5rem;
-      color: var(--undertale-yellow);
+      color: var(--accent-yellow);
       margin-bottom: 0.5rem;
-      text-shadow: 2px 2px 0px #000;
+      text-shadow: 1px 1px 0px #000;
       text-decoration: none;
       display: inline-block;
     }
 
     .site-title:hover {
-      color: var(--undertale-white);
+      color: var(--text-white);
     }
 
     h1, h2, h3, h4, h5, h6 {
-      color: var(--undertale-white);
+      color: var(--text-white);
       margin: 1.5rem 0 1rem 0;
     }
 
     h1 {
-      color: var(--undertale-yellow);
-      border-bottom: 1px solid var(--border-white);
+      color: var(--accent-yellow);
+      border-bottom: 1px solid var(--border-light);
       padding-bottom: 0.5rem;
     }
 
     h2 {
-      border-bottom: 1px solid var(--text-gray);
+      color: var(--text-light);
+      border-bottom: 1px solid var(--border-light);
       padding-bottom: 0.3rem;
     }
 
     p, li {
-      color: var(--text-gray);
+      color: var(--text-medium);
       margin-bottom: 1rem;
     }
 
-    /* Enhanced readability for links */
+    /* Clean link styling */
     a {
-      color: var(--undertale-cyan);
-      text-decoration: none;
-    }
-
-    a:hover {
-      color: var(--undertale-yellow);
+      color: var(--text-light);
       text-decoration: underline;
     }
 
-    /* Better code styling */
+    a:hover {
+      color: var(--accent-yellow);
+      text-decoration: none;
+    }
+
+    /* Minimal code styling */
     code {
-      background: var(--background-darker);
-      color: var(--undertale-yellow);
+      background: var(--background-dark);
+      color: var(--accent-yellow);
       padding: 0.2rem 0.4rem;
-      border-radius: 3px;
+      border-radius: 2px;
       font-family: 'Courier New', monospace;
-      border: 1px solid var(--border-gray);
     }
 
     pre {
-      background: var(--background-darker);
-      border: 1px solid var(--border-gray);
+      background: var(--background-dark);
+      border: 1px solid var(--border-light);
       padding: 1rem;
       overflow-x: auto;
       margin: 1rem 0;
-      color: var(--undertale-light-gray);
+      color: var(--text-light);
     }
 
     /* Navigation */
@@ -173,17 +162,17 @@
     }
 
     .site-nav a {
-      color: var(--undertale-light-gray);
+      color: var(--text-medium);
       padding: 0.5rem 1rem;
-      border: 1px solid var(--border-gray);
+      border: 1px solid var(--border-light);
       text-decoration: none;
       transition: all 0.3s ease;
     }
 
     .site-nav a:hover {
-      background: var(--undertale-cyan);
-      color: var(--background-black);
-      border-color: var(--undertale-cyan);
+      background: var(--background-medium);
+      color: var(--text-white);
+      border-color: var(--border-medium);
     }
 
     main {
@@ -193,12 +182,12 @@
     footer {
       text-align: center;
       padding: 2rem 0;
-      border-top: 1px solid var(--border-gray);
+      border-top: 1px solid var(--border-light);
       margin-top: 3rem;
-      color: var(--text-gray);
+      color: var(--text-dark);
     }
 
-    /* Tables */
+    /* Clean table styling */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -207,28 +196,27 @@
     }
 
     th, td {
-      border: 1px solid var(--border-gray);
-      padding: 0.5rem;
+      border: 1px solid var(--border-light);
+      padding: 0.75rem;
       text-align: left;
-      color: var(--undertale-light-gray);
+      color: var(--text-medium);
     }
 
     th {
-      background: var(--background-darker);
-      color: var(--undertale-yellow);
+      background: var(--background-medium);
+      color: var(--text-white);
       font-weight: bold;
-      border: 1px solid var(--undertale-yellow);
     }
 
-    /* Lists */
+    /* Clean lists */
     ul, ol {
-      color: var(--undertale-light-gray);
+      color: var(--text-medium);
       padding-left: 2rem;
     }
 
     li {
       margin-bottom: 0.5rem;
-      color: var(--undertale-light-gray);
+      color: var(--text-medium);
     }
 
     /* Responsive */
