@@ -1,6 +1,6 @@
 VERSION := 1.0.0
-SOURCE := .
-PREFIX := target
+PREFIX  := target
+SOURCE  := .
 
 install:
 	mkdir -p $(PREFIX)/usr/bin $(PREFIX)/usr/share/flowey

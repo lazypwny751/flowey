@@ -11,11 +11,12 @@ my ($opt, $usage) = describe_options(
     "flowey %o <message>",
     [ "assets|a=s",    "Set assets directory.", { default => "/usr/share/flowey" } ],
     [ "character|c=s", "Set character." ],
-    [ "generate|g",    "Generate a new character file" ],
-    [ "quiet|q",       "Run quietly" ],
+    [ "generate|g",    "Generate a new character file." ],
+    [ "quiet|q",       "Run quietly." ],
+    [ "list|l",        "List available characters." ],
     [ "random|r",      "Select random character." ],
-    [ "version|v",     "Show version information" ],
-    [ "help|h",        "Show this help message" ],
+    [ "version|v",     "Show version information." ],
+    [ "help|h",        "Show this help message." ],
 );
 
 # Parse command line options
@@ -84,6 +85,28 @@ if ($opt->{help}) {
 
         # Create the character file
         print "Creating character file...\n";
+    }
+    exit(0);
+} elsif ($opt->{list}) {
+    my @flowies;
+    find(
+        sub {
+            return unless -f $_;
+            return unless /\.flowey$/;
+            push @flowies, $File::Find::name;
+        },
+        $opt->assets
+    );
+
+    if (@flowies) {
+        print "Available characters:\n";
+        foreach my $flowey (@flowies) {
+            (my $name = $flowey) =~ s{.*/}{};
+            $name =~ s{\.flowey$}{};
+            print "- $name\n";
+        }
+    } else {
+        print "No characters found in '$opt->{assets}'.\n";
     }
     exit(0);
 }
