@@ -1,0 +1,46 @@
+# Flowey Documentation Site
+title: "Flowey - Undertale ASCII Art Tool"
+description: "A delightful ASCII art tool inspired by cowsay but themed around the beloved Undertale universe"
+url: "https://lazypwny751.github.io"
+baseurl: "/flowey"
+
+# Build settings
+markdown: kramdown
+highlighter: rouge
+theme: minima
+
+# Undertale themed collections
+collections:
+  characters:
+    output: true
+    permalink: /:collection/:name/
+
+# Navigation
+header_pages:
+  - index.md
+  - characters.md
+  - installation.md
+  - usage.md
+
+# Social links
+github_username: lazypwny751
+
+# Undertale themed settings
+undertale_quotes:
+  - "Stay determined!"
+  - "It's a beautiful day outside..."
+  - "You feel your sins crawling on your back"
+  - "Determination fills your soul"
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Exclude files
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor

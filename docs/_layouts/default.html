@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% if page.title %}{{ page.title }} - {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ page.description | default: site.description }}">
+  
+  <!-- Undertale-inspired favicon -->
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌻</text></svg>">
+  
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Determination+Mono:wght@400;700&family=Pixel:wght@400;700&display=swap" rel="stylesheet">
+  
+  <!-- Custom Undertale CSS -->
+  <link rel="stylesheet" href="{{ '/assets/undertale.css' | relative_url }}">
+  
+  <style>
+    :root {
+      --undertale-yellow: #fcff4a;
+      --undertale-green: #4a7c23;
+      --undertale-dark-green: #2d5016;
+      --undertale-blue: #87ceeb;
+      --undertale-red: #ff0000;
+      --undertale-orange: #ffa500;
+      --undertale-purple: #800080;
+      --underground-bg: #1a1a1a;
+      --text-light: #f4e4bc;
+      --border-gold: #daa520;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      line-height: 1.6;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, var(--underground-bg) 0%, #2d2d2d 100%);
+      color: var(--text-light);
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Header */
+    .site-header {
+      background: linear-gradient(45deg, var(--undertale-dark-green), var(--undertale-green));
+      border-bottom: 3px solid var(--undertale-yellow);
+      padding: 1rem 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+
+    .site-title {
+      color: var(--undertale-yellow);
+      text-decoration: none;
+      font-size: 2rem;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .site-title:hover {
+      color: white;
+      transition: color 0.3s ease;
+    }
+
+    /* Navigation */
+    .site-nav {
+      margin-top: 1rem;
+    }
+
+    .site-nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .site-nav a {
+      color: var(--text-light);
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border: 2px solid transparent;
+      border-radius: 5px;
+      transition: all 0.3s ease;
+    }
+
+    .site-nav a:hover {
+      background: var(--undertale-yellow);
+      color: var(--undertale-dark-green);
+      border-color: var(--undertale-yellow);
+      font-weight: bold;
+    }
+
+    /* Main content */
+    .main-content {
+      background: white;
+      color: #333;
+      margin: 2rem 0;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      border: 3px solid var(--undertale-yellow);
+    }
+
+    /* Typography */
+    h1, h2, h3, h4, h5, h6 {
+      color: var(--undertale-dark-green);
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      border-bottom: 3px solid var(--undertale-yellow);
+      padding-bottom: 0.5rem;
+    }
+
+    h2 {
+      border-left: 5px solid var(--undertale-green);
+      padding-left: 1rem;
+    }
+
+    /* Code blocks */
+    pre, code {
+      font-family: 'Courier New', monospace;
+      background: #2d3748;
+      color: #e2e8f0;
+    }
+
+    pre {
+      padding: 1rem;
+      border-radius: 5px;
+      overflow-x: auto;
+      border-left: 4px solid var(--undertale-yellow);
+    }
+
+    code {
+      padding: 0.2rem 0.4rem;
+      border-radius: 3px;
+      font-size: 0.9em;
+    }
+
+    /* Links */
+    a {
+      color: var(--undertale-green);
+      text-decoration: underline;
+    }
+
+    a:hover {
+      color: var(--undertale-dark-green);
+      font-weight: bold;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 1.5rem 0;
+    }
+
+    th, td {
+      border: 1px solid #dee2e6;
+      padding: 0.75rem;
+      text-align: left;
+    }
+
+    th {
+      background: var(--undertale-green);
+      color: white;
+      font-weight: bold;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f8f9fa;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--undertale-dark-green);
+      color: var(--text-light);
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: 3rem;
+      border-top: 3px solid var(--undertale-yellow);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .footer-quote {
+      font-style: italic;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .site-nav ul {
+        flex-direction: column;
+      }
+      
+      .main-content {
+        margin: 1rem 0;
+        padding: 1rem;
+      }
+      
+      .footer-content {
+        flex-direction: column;
+      }
+    }
+
+    /* Special elements */
+    .highlight-box {
+      background: linear-gradient(135deg, var(--undertale-yellow), #fff8dc);
+      border: 3px solid var(--undertale-green);
+      padding: 1.5rem;
+      border-radius: 10px;
+      margin: 1.5rem 0;
+    }
+
+    .warning-box {
+      background: linear-gradient(135deg, #ffeeee, #ffe6e6);
+      border: 3px solid var(--undertale-red);
+      padding: 1rem;
+      border-radius: 8px;
+      margin: 1rem 0;
+    }
+
+    /* Loading animation for fun */
+    @keyframes determination {
+      0% { opacity: 0.5; }
+      50% { opacity: 1; }
+      100% { opacity: 0.5; }
+    }
+
+    .determination-pulse {
+      animation: determination 2s infinite;
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container">
+      <a href="{{ '/' | relative_url }}" class="site-title">
+        🌻 {{ site.title }}
+      </a>
+      <nav class="site-nav">
+        <ul>
+          <li><a href="{{ '/' | relative_url }}">Home</a></li>
+          <li><a href="{{ '/installation/' | relative_url }}">Installation</a></li>
+          <li><a href="{{ '/usage/' | relative_url }}">Usage</a></li>
+          <li><a href="{{ '/characters/' | relative_url }}">Characters</a></li>
+          <li><a href="https://github.com/lazypwny751/flowey" target="_blank">GitHub 📁</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <div class="main-content">
+      {{ content }}
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-content">
+        <div>
+          <p>&copy; 2024 <a href="https://github.com/lazypwny751" style="color: var(--undertale-yellow);">lazypwny751</a></p>
+          <p>Licensed under GNU GPLv3</p>
+        </div>
+        <div class="footer-quote determination-pulse">
+          <p><em>"Stay determined!"</em></p>
+        </div>
+        <div>
+          <p>🌻 Made with ❤️ and determination</p>
+          <p>Inspired by <strong>Undertale</strong> by Toby Fox</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

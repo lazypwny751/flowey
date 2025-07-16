@@ -1,0 +1,275 @@
+/* Undertale-themed custom styles for Flowey documentation */
+
+/* SOUL colors from Undertale */
+:root {
+  --soul-red: #ff0000;        /* Determination */
+  --soul-cyan: #00ffff;       /* Patience */
+  --soul-orange: #ff8000;     /* Bravery */
+  --soul-blue: #0080ff;       /* Integrity */
+  --soul-purple: #8000ff;     /* Perseverance */
+  --soul-green: #00ff00;      /* Kindness */
+  --soul-yellow: #ffff00;     /* Justice */
+}
+
+/* Battle box styling for code blocks */
+.battle-box {
+  background: #000;
+  border: 4px solid #fff;
+  padding: 1rem;
+  font-family: 'Courier New', monospace;
+  color: #fff;
+  margin: 1rem 0;
+  position: relative;
+}
+
+.battle-box::before {
+  content: "❤";
+  color: var(--soul-red);
+  position: absolute;
+  top: 0.5rem;
+  left: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Flowey's special text boxes */
+.flowey-textbox {
+  background: linear-gradient(135deg, #2d5016, #4a7c23);
+  border: 3px solid #fcff4a;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 10px;
+  color: #f4e4bc;
+  position: relative;
+}
+
+.flowey-textbox::before {
+  content: "🌻";
+  position: absolute;
+  top: -15px;
+  left: 20px;
+  background: inherit;
+  padding: 0 10px;
+  font-size: 1.5rem;
+}
+
+/* Sans's lazy style boxes */
+.sans-box {
+  background: #87ceeb;
+  border-left: 5px solid #4682b4;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-style: italic;
+  color: #2f4f4f;
+}
+
+.sans-box::before {
+  content: "💀 ";
+  font-style: normal;
+}
+
+/* Papyrus's enthusiastic boxes */
+.papyrus-box {
+  background: linear-gradient(45deg, #ffa500, #ff8c00);
+  border: 3px solid #ff6347;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  text-transform: uppercase;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  text-align: center;
+}
+
+.papyrus-box::before {
+  content: "🍝 THE GREAT PAPYRUS SAYS: ";
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+/* Toriel's caring style */
+.toriel-box {
+  background: linear-gradient(135deg, #f0e68c, #daa520);
+  border: 3px solid #b8860b;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-radius: 15px;
+  color: #8b4513;
+  font-style: italic;
+}
+
+.toriel-box::before {
+  content: "🐐 ";
+  font-style: normal;
+  font-size: 1.2rem;
+}
+
+/* Asgore's royal style */
+.asgore-box {
+  background: linear-gradient(135deg, #800080, #4b0082);
+  border: 3px solid #daa520;
+  padding: 2rem;
+  margin: 2rem 0;
+  color: #f4e4bc;
+  text-align: center;
+  border-radius: 10px;
+}
+
+.asgore-box::before {
+  content: "👑 ";
+  font-size: 1.5rem;
+}
+
+/* Frisk's determination style */
+.frisk-box {
+  background: linear-gradient(135deg, #ff6b6b, #feca57);
+  border: 3px solid #fff;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+}
+
+.frisk-box::before {
+  content: "👤 * ";
+  font-weight: normal;
+}
+
+/* Determination button effect */
+.determination-btn {
+  background: linear-gradient(45deg, var(--soul-red), #ff6b6b);
+  color: white;
+  border: 3px solid white;
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  text-decoration: none;
+  display: inline-block;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+.determination-btn:hover {
+  background: linear-gradient(45deg, #ff6b6b, var(--soul-red));
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+  color: white;
+}
+
+/* SAVE point styling */
+.save-point {
+  background: radial-gradient(circle, #ffff00, #ffd700);
+  border: 3px solid #ffa500;
+  padding: 1rem;
+  margin: 2rem 0;
+  text-align: center;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+  animation: pulse-save 3s infinite;
+}
+
+@keyframes pulse-save {
+  0%, 100% { 
+    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+    transform: scale(1);
+  }
+  50% { 
+    box-shadow: 0 0 50px rgba(255, 255, 0, 0.8);
+    transform: scale(1.05);
+  }
+}
+
+/* ASCII art containers */
+.ascii-container {
+  background: #000;
+  color: #0f0;
+  font-family: 'Courier New', monospace;
+  padding: 1rem;
+  border: 2px solid #0f0;
+  border-radius: 5px;
+  overflow-x: auto;
+  white-space: pre;
+  line-height: 1.2;
+}
+
+/* Character showcase animations */
+.character-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Underground atmosphere */
+.underground-section {
+  background: 
+    linear-gradient(135deg, transparent 25%, rgba(45, 80, 22, 0.1) 25%), 
+    linear-gradient(225deg, transparent 25%, rgba(45, 80, 22, 0.1) 25%), 
+    linear-gradient(45deg, transparent 75%, rgba(45, 80, 22, 0.1) 75%), 
+    linear-gradient(315deg, transparent 75%, rgba(45, 80, 22, 0.1) 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  padding: 2rem;
+  margin: 2rem 0;
+  border-radius: 10px;
+}
+
+/* Responsive improvements */
+@media (max-width: 768px) {
+  .save-point {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .flowey-textbox,
+  .papyrus-box,
+  .toriel-box,
+  .asgore-box,
+  .frisk-box {
+    padding: 1rem;
+    margin: 1rem 0;
+  }
+}
+
+/* Special effects for interactive elements */
+.soul-heart {
+  color: var(--soul-red);
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  0%, 100% { transform: scale(1); }
+  25% { transform: scale(1.1); }
+  50% { transform: scale(1); }
+  75% { transform: scale(1.05); }
+}
+
+/* Loading states with Undertale flair */
+.loading-determination {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.loading-determination::before {
+  content: "❤";
+  position: absolute;
+  left: 0;
+  color: var(--soul-red);
+  animation: determination-loading 1s infinite;
+}
+
+@keyframes determination-loading {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 1; }
+}

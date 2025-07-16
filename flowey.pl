@@ -230,6 +230,8 @@ parse_section($meta_file, "data");
 # === SUBROUTINES ===
 # subroutine to pretty print a message
 sub pretty_print {
+    # Need to improve this function to make it more visually appealing.
+    # Currently, it just prints the message in a box.
     my $text = shift;
     return unless defined $text;
 

@@ -13,93 +13,80 @@ A delightful ASCII art tool inspired by **cowsay** but themed around the beloved
 - 🎨 **Colorful ASCII Art**: Beautiful terminal art with ANSI colors
 - ⚡ **Lightweight**: Pure Perl with minimal dependencies
 
-## 🚀 Installation
+## 🚀 Quick Start
 
-### Quick Install
 ```bash
-# Clone the repository
+# Clone and install
 git clone https://github.com/lazypwny751/flowey.git
 cd flowey
-
-# Install dependencies
 cpan install Getopt::Long::Descriptive
-# or use carton for development
-carton install
-```
 
-### Package Installation
-Pre-built packages available for:
-- 📦 **Debian/Ubuntu**: `flowey-ubuntu_1.0.0_all.deb`
-- 🍃 **Linux Mint**: `flowey-mint_1.0.0_all.deb`
-
-## 📖 Usage
-
-```bash
-# Default Flowey with random quote
-./flowey.pl
-
-# Custom message with default character (Ferris)
+# Try it out!
 ./flowey.pl "Determination fills your soul!"
-
-# Choose a different character
 ./flowey.pl -c sans "you're gonna have a bad time."
 ./flowey.pl -c papyrus "NYEH HEH HEH!"
-
-# Specify custom assets directory
-./flowey.pl -a /path/to/flowies -c toriel "My child..."
 ```
 
-### Available Characters
-- 🌻 **flowey** (default) - The devious flower
-- 💀 **sans** - The laid-back skeleton  
-- 🍝 **papyrus** - The enthusiastic skeleton
-- 🐐 **toriel** - The caring goat mother
-- 👑 **asgore** - The king of monsters
-- 👤 **frisk** - The determined human
+## 📖 Documentation
 
-## 🛠️ Development
+Complete documentation available at: **[flowey.underground.dev](https://lazypwny751.github.io/flowey)**
+
+- 📦 [Installation Guide](https://lazypwny751.github.io/flowey/installation/)
+- 📚 [Usage Examples](https://lazypwny751.github.io/flowey/usage/)  
+- 🎭 [Character Gallery](https://lazypwny751.github.io/flowey/characters/)
+
+## 🎯 Available Characters
+
+| Character | Emoji | Personality |
+|-----------|-------|-------------|
+| **flowey** | 🌻 | The devious flower |
+| **sans** | 💀 | The laid-back skeleton |
+| **papyrus** | 🍝 | The enthusiastic skeleton |
+| **toriel** | 🐐 | The caring goat mother |
+| **asgore** | 👑 | The king of monsters |
+| **frisk** | 👤 | The determined human |
+
+## � Installation Options
+
+**From Source:**
+```bash
+git clone https://github.com/lazypwny751/flowey.git
+cd flowey && cpan install Getopt::Long::Descriptive
+```
+
+**Pre-built Packages:**
+- 📦 Debian/Ubuntu: `flowey-ubuntu_1.0.0_all.deb`
+- 🍃 Linux Mint: `flowey-mint_1.0.0_all.deb`
+
+## 🛠️ Usage Examples
 
 ```bash
-# Development setup with carton
-carton install
-carton exec perl flowey.pl
+# Random character with random quote
+flowey
 
-# Build packages
-make ubuntu  # Ubuntu/Debian package
-make mint    # Linux Mint package
+# Custom message with specific character
+flowey -c toriel "My child, stay safe out there."
+
+# List all available characters
+flowey --list
+
+# Generate new character from image
+flowey --generate
 ```
-
-## 🎯 Examples
-
-```bash
-# Random Undertale quote with Sans
-./flowey.pl -c sans
-
-# Custom motivational message with Toriel  
-./flowey.pl -c toriel "Stay determined, my child."
-
-# Papyrus being... well, Papyrus
-./flowey.pl -c papyrus "I, THE GREAT PAPYRUS, BELIEVE IN YOU!"
-```
-
----
 
 ## 🤝 Contributing
 
-Contributions are welcome!
-
-1. Fork this repository
-2. Create your feature branch (`git checkout -b feature/cool-stuff`)
-3. Commit your changes (`git commit -m 'Add some cool stuff'`)
-4. Push to the branch (`git push origin feature/cool-stuff`)
-5. Open a pull request
-
-Or just open an issue if you have feedback or suggestions.
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/awesome-feature`)
+3. Commit your changes (`git commit -m 'Add awesome feature'`)
+4. Push to the branch (`git push origin feature/awesome-feature`)
+5. Open a Pull Request
 
 ## 📜 License
 
-This project is licensed under the terms of the [GNU GPLv3 License](https://www.gnu.org/licenses/gpl-3.0.html).  
-See the [LICENSE](https://github.com/lazypwny751/flowey/blob/main/LICENSE) file for details.
+This project is licensed under the [GNU GPLv3 License](LICENSE).
 
 ---
-> *Made with ❤️ and determination*
+
+> *Made with ❤️ and determination*  
+> *Inspired by **Undertale** by Toby Fox*
