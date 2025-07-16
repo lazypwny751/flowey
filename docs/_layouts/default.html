@@ -14,16 +14,22 @@
   
   <style>
     :root {
-      --undertale-yellow: #fcff4a;
+      --undertale-yellow: #ffdd44;
       --undertale-white: #ffffff;
       --undertale-gray: #cccccc;
-      --undertale-red: #ff0000;
-      --undertale-cyan: #00ffff;
+      --undertale-light-gray: #dddddd;
+      --undertale-red: #ff4444;
+      --undertale-cyan: #44ccff;
+      --undertale-orange: #ff8844;
+      --undertale-purple: #aa44ff;
+      --undertale-green: #44ff88;
       --background-black: #000000;
       --background-dark: #111111;
+      --background-darker: #0a0a0a;
       --text-light: #ffffff;
       --text-gray: #cccccc;
       --border-white: #ffffff;
+      --border-gray: #444444;
     }
 
     * {
@@ -83,7 +89,7 @@
     .site-header {
       text-align: center;
       padding: 2rem 0;
-      border-bottom: 2px solid var(--border-white);
+      border-bottom: 2px solid var(--border-gray);
       margin-bottom: 2rem;
     }
 
@@ -121,6 +127,7 @@
       margin-bottom: 1rem;
     }
 
+    /* Enhanced readability for links */
     a {
       color: var(--undertale-cyan);
       text-decoration: none;
@@ -131,20 +138,23 @@
       text-decoration: underline;
     }
 
+    /* Better code styling */
     code {
-      background: var(--background-dark);
+      background: var(--background-darker);
       color: var(--undertale-yellow);
       padding: 0.2rem 0.4rem;
       border-radius: 3px;
       font-family: 'Courier New', monospace;
+      border: 1px solid var(--border-gray);
     }
 
     pre {
-      background: var(--background-dark);
-      border: 1px solid var(--border-white);
+      background: var(--background-darker);
+      border: 1px solid var(--border-gray);
       padding: 1rem;
       overflow-x: auto;
       margin: 1rem 0;
+      color: var(--undertale-light-gray);
     }
 
     /* Navigation */
@@ -163,16 +173,17 @@
     }
 
     .site-nav a {
-      color: var(--text-light);
+      color: var(--undertale-light-gray);
       padding: 0.5rem 1rem;
-      border: 1px solid var(--border-white);
+      border: 1px solid var(--border-gray);
       text-decoration: none;
       transition: all 0.3s ease;
     }
 
     .site-nav a:hover {
-      background: var(--border-white);
+      background: var(--undertale-cyan);
       color: var(--background-black);
+      border-color: var(--undertale-cyan);
     }
 
     main {
@@ -182,7 +193,7 @@
     footer {
       text-align: center;
       padding: 2rem 0;
-      border-top: 1px solid var(--border-white);
+      border-top: 1px solid var(--border-gray);
       margin-top: 3rem;
       color: var(--text-gray);
     }
@@ -196,26 +207,28 @@
     }
 
     th, td {
-      border: 1px solid var(--border-white);
+      border: 1px solid var(--border-gray);
       padding: 0.5rem;
       text-align: left;
-      color: var(--text-gray);
+      color: var(--undertale-light-gray);
     }
 
     th {
-      background: var(--background-black);
-      color: var(--text-light);
+      background: var(--background-darker);
+      color: var(--undertale-yellow);
       font-weight: bold;
+      border: 1px solid var(--undertale-yellow);
     }
 
     /* Lists */
     ul, ol {
-      color: var(--text-gray);
+      color: var(--undertale-light-gray);
       padding-left: 2rem;
     }
 
     li {
       margin-bottom: 0.5rem;
+      color: var(--undertale-light-gray);
     }
 
     /* Responsive */

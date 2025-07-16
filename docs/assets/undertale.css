@@ -1,17 +1,23 @@
 /* Undertale-themed custom styles for Flowey documentation */
 /* Black theme with simple starfield effect */
 
-/* SOUL colors from Undertale - simplified palette */
+/* SOUL colors from Undertale - Dark theme optimized palette */
 :root {
-  --soul-red: #ff0000;        /* Determination */
-  --soul-cyan: #00ffff;       /* Patience */
-  --soul-yellow: #ffff00;     /* Justice */
+  --soul-red: #ff4444;        /* Determination - slightly softer red */
+  --soul-cyan: #44ccff;       /* Patience - darker cyan for readability */
+  --soul-yellow: #ffdd44;     /* Justice - softer yellow */
+  --soul-orange: #ff8844;     /* Bravery - readable orange */
+  --soul-purple: #aa44ff;     /* Perseverance - darker purple */
+  --soul-green: #44ff88;      /* Kindness - readable green */
   --soul-white: #ffffff;      /* Monster soul */
   --text-white: #ffffff;
   --text-gray: #cccccc;
+  --text-light-gray: #dddddd;
   --text-dark-gray: #999999;
   --background-black: #000000;
   --background-dark: #111111;
+  --background-darker: #0a0a0a;
+  --border-color: #444444;
 }
 
 /* Override any existing body styles */
@@ -47,22 +53,22 @@ body {
   padding: 1rem;
   margin: 1rem 0;
   font-style: italic;
-  color: var(--text-gray);
+  color: var(--text-light-gray);
 }
 
 .sans-box::before {
   content: "💀 ";
   font-style: normal;
-  color: var(--text-white);
+  color: var(--soul-cyan);
 }
 
 /* Papyrus's enthusiastic boxes */
 .papyrus-box {
   background: var(--background-dark);
-  border: 2px solid var(--text-white);
+  border: 2px solid var(--soul-orange);
   padding: 1.5rem;
   margin: 1.5rem 0;
-  color: var(--text-white);
+  color: var(--text-light-gray);
   text-transform: uppercase;
   font-weight: bold;
 }
@@ -70,6 +76,7 @@ body {
 .papyrus-box::before {
   content: "🦴 ";
   font-size: 1.2rem;
+  color: var(--soul-orange);
 }
 
 /* Flowey's sinister style */
@@ -92,10 +99,10 @@ body {
 /* Toriel's caring style */
 .toriel-box {
   background: var(--background-dark);
-  border: 2px solid var(--text-white);
+  border: 2px solid var(--soul-purple);
   padding: 1.5rem;
   margin: 1.5rem 0;
-  color: var(--text-gray);
+  color: var(--text-light-gray);
   font-style: italic;
 }
 
@@ -103,7 +110,7 @@ body {
   content: "🐐 ";
   font-style: normal;
   font-size: 1.2rem;
-  color: var(--text-white);
+  color: var(--soul-purple);
 }
 
 /* Asgore's royal style */
@@ -112,7 +119,7 @@ body {
   border: 2px solid var(--soul-yellow);
   padding: 2rem;
   margin: 2rem 0;
-  color: var(--text-white);
+  color: var(--text-light-gray);
   text-align: center;
 }
 
@@ -128,7 +135,7 @@ body {
   border: 2px solid var(--soul-red);
   padding: 1.5rem;
   margin: 1.5rem 0;
-  color: var(--text-white);
+  color: var(--text-light-gray);
   font-weight: bold;
   text-align: center;
 }
@@ -217,26 +224,28 @@ table {
 }
 
 th, td {
-  border: 1px solid var(--text-white);
+  border: 1px solid var(--border-color);
   padding: 0.5rem;
   text-align: left;
-  color: var(--text-gray);
+  color: var(--text-light-gray);
 }
 
 th {
-  background: var(--background-black);
-  color: var(--text-white);
+  background: var(--background-darker);
+  color: var(--soul-yellow);
   font-weight: bold;
+  border: 1px solid var(--soul-yellow);
 }
 
 /* Lists */
 ul, ol {
-  color: var(--text-gray);
+  color: var(--text-light-gray);
   padding-left: 2rem;
 }
 
 li {
   margin-bottom: 0.5rem;
+  color: var(--text-light-gray);
 }
 
 /* Responsive improvements */
