@@ -9,10 +9,12 @@ our $VERSION = '1.0.0';
 
 my ($opt, $usage) = describe_options(
     "flowey %o <message>",
-    [ "assets|a=s",  "Set assets directory.", { default => "/usr/share/flowey" } ],
+    [ "assets|a=s",    "Set assets directory.", { default => "/usr/share/flowey" } ],
     [ "character|c=s", "Set character.", { default => "ferris" } ],
-    [ "version|v",   "Show version information" ],
-    [ "help|h",  "Show this help message" ],
+    [ "generate|g",    "Generate a new character file" ],
+    [ "quiet|q",       "Run quietly" ],
+    [ "version|v",     "Show version information" ],
+    [ "help|h",        "Show this help message" ],
 );
 
 # Parse command line options
@@ -22,7 +24,62 @@ if ($opt->{help}) {
 } elsif ($opt->{version}) {
     print "flowey version $VERSION\n";
     exit(0);
+} elsif ($opt->{generate}) {
+    my @goodbyes = (
+        "You're gonna carry that weight.",
+        "Stay determined!",
+        "See you in another timeline...",
+        "Don't forget to SAVE your progress.",
+        "This is the end of your journey, for now.",
+        "Keep your friends close, and your soul closer.",
+        "Your story is far from over.",
+    );
+
+    $SIG{INT} = sub {
+        my $msg = $goodbyes[ int(rand(@goodbyes)) ];
+        print "\n$msg\n";
+        exit(0);
+    };
+
+    my $image_path = '';
+    my $out_file = '';
+    my $author = 'lazypwny751';
+    print "Welcome to Flowey character generator!\n";
+    print "You can generate a new character file by providing the image path, output file, and author.\n";
+    print "Press Ctrl+C to exit at any time.\n\n";
+    while (1) {
+        print "flowey image path> ";
+        chomp($image_path = <STDIN>);
+        if (-f $image_path) {
+            print "> $image_path\n";
+        } else {
+            print "- Image file does not exist. Please try again.\n";
+            next;
+        }
+
+        print "flowey output file> ";
+        chomp($out_file = <STDIN>);
+        if ($out_file eq '') {
+            print "- Output file cannot be empty. Please try again.\n";
+            next;
+        } else {
+            if ($out_file !~ /\.flowey$/) {
+                $out_file .= '.flowey';
+            }
+            print "> $out_file\n";
+        }
+
+        print "flowey author (default: $author)> ";
+        chomp(my $input = <STDIN>);
+        $author = $input if $input ne '';
+        print "> $author\n";
+
+        # Create the character file
+        print "Creating character file...\n";
+    }
+    exit(0);
 }
+
 # random quotes from Undertale
 # Source: https://undertale.fandom.com/wiki/Undertale_Wiki
 my @rand_msg = (
@@ -93,7 +150,9 @@ if (!-f $meta_file) {
 }
 
 # === MAIN LOGIC ===
-pretty_print($msg);
+if (!$opt->quiet) {
+    pretty_print($msg);
+}
 parse_section($meta_file, "data");
 
 # === SUBROUTINES ===
