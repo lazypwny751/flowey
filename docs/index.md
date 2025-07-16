@@ -1,147 +1,262 @@
 ---
 layout: default
-title: "Welcome to the Underground"
-permalink: /
+title: Flowey - Undertale ASCII Art Tool
 ---
-
-<div class="flowey-banner">
-  <pre class="ascii-art">
-    🌻 FLOWEY 🌻
-   Howdy! I'm Flowey.
-   Flowey the Flower!
-  </pre>
-</div>
-
-# Welcome, Human! 
-
-You've fallen into the **Underground**... but don't worry! This isn't a place of despair - it's where **Flowey** lives, your friendly ASCII art companion inspired by the beloved **Undertale** universe.
-
-## 🎭 What is Flowey?
-
-Flowey is a delightful command-line tool that brings your favorite **Undertale** characters to life in ASCII art form. Just like `cowsay`, but with the charm and determination of the Underground!
-
-```bash
-$ flowey "Stay determined!"
-```
-
-### ✨ Features
-
-- **Multiple Characters**: Choose from Flowey, Sans, Papyrus, Toriel, Asgore, and Frisk
-- **Random Undertale Quotes**: No message? Get a random quote from the game  
-- **Colorful ASCII Art**: Beautiful terminal art with ANSI colors
-- **Lightweight**: Pure Perl with minimal dependencies
-
-## 🚀 Quick Start
-
-```bash
-# Clone the repository
-git clone https://github.com/lazypwny751/flowey.git
-cd flowey
-
-# Install dependencies  
-cpan install Getopt::Long::Descriptive
-
-# Run with default character
-./flowey.pl "Determination fills your soul!"
-
-# Choose a different character
-./flowey.pl -c sans "you're gonna have a bad time."
-```
-
-## 🌟 Available Characters
-
-<div class="character-grid">
-  <div class="character-card">
-    <h3>🌻 Flowey</h3>
-    <p>The devious flower with a smile that's never just a smile</p>
-  </div>
-  
-  <div class="character-card">
-    <h3>💀 Sans</h3>
-    <p>The laid-back skeleton who knows more than he lets on</p>
-  </div>
-  
-  <div class="character-card">
-    <h3>🍝 Papyrus</h3>
-    <p>The enthusiastic skeleton who believes in you!</p>
-  </div>
-  
-  <div class="character-card">
-    <h3>🐐 Toriel</h3>
-    <p>The caring goat mother who smells like cinnamon</p>
-  </div>
-  
-  <div class="character-card">
-    <h3>👑 Asgore</h3>
-    <p>The king of monsters, quietly tending his flowers</p>
-  </div>
-  
-  <div class="character-card">
-    <h3>👤 Frisk</h3>
-    <p>The determined human whose eyes say enough</p>
-  </div>
-</div>
-
----
-
-<div class="determination-box">
-  <p><strong>* You feel a strange presence...</strong></p>
-  <p><em>Ready to begin your journey? Check out the [Installation Guide](installation.html) or explore the [Character Gallery](characters.html)!</em></p>
-</div>
 
 <style>
-.flowey-banner {
-  text-align: center;
-  background: linear-gradient(45deg, #2d5a87, #4a90e2);
-  color: #eee;
-  padding: 2rem;
-  border-radius: 10px;
-  margin-bottom: 2rem;
-  border: 3px solid #fcff4a;
-}
-
-.ascii-art {
-  font-family: 'Courier New', monospace;
-  font-size: 1.2rem;
-  color: #fcff4a;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.character-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
-
-.character-card {
-  background: #f8f9fa;
-  border: 2px solid #dee2e6;
-  border-radius: 8px;
-  padding: 1.5rem;
-  text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
-}
-
-.character-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-  border-color: #fcff4a;
-}
-
-.determination-box {
-  background: linear-gradient(135deg, #ff6b6b, #feca57);
-  color: white;
-  padding: 1.5rem;
-  border-radius: 10px;
-  text-align: center;
-  margin: 2rem 0;
-  border: 3px solid white;
-  font-weight: bold;
-}
-
-.determination-box a {
-  color: white;
-  text-decoration: underline;
-}
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .flowey-header {
+    text-align: center;
+    margin: 40px 0;
+    border: 2px solid #fff;
+    padding: 20px;
+    background-color: #111;
+  }
+  
+  .flowey-ascii {
+    font-family: monospace;
+    font-size: 8px;
+    line-height: 1;
+    color: #fff;
+    white-space: pre;
+    margin: 20px 0;
+    overflow-x: auto;
+  }
+  
+  .quote-box {
+    border: 2px solid #fff;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #111;
+    text-align: center;
+    font-style: italic;
+  }
+  
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin: 30px 0;
+  }
+  
+  .feature-card {
+    border: 1px solid #fff;
+    padding: 20px;
+    background-color: #111;
+  }
+  
+  .character-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    margin: 20px 0;
+  }
+  
+  .character-item {
+    border: 1px solid #fff;
+    padding: 10px;
+    text-align: center;
+    background-color: #111;
+  }
+  
+  code {
+    background-color: #222;
+    color: #fff;
+    padding: 2px 6px;
+    border: 1px solid #555;
+  }
+  
+  pre {
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+    border: 1px solid #555;
+    overflow-x: auto;
+  }
+  
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+  
+  a:hover {
+    color: #ccc;
+  }
+  
+  .nav-links {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .nav-links a {
+    margin: 0 15px;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  .nav-links a:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .install-section {
+    border: 2px solid #fff;
+    padding: 20px;
+    margin: 30px 0;
+    background-color: #111;
+  }
+  
+  .footer {
+    text-align: center;
+    margin: 50px 0 20px 0;
+    padding: 20px;
+    border-top: 1px solid #fff;
+    font-size: 14px;
+  }
 </style>
+
+<div class="container">
+  <div class="flowey-header">
+    <h1>🌻 FLOWEY</h1>
+    <p>A delightful ASCII art tool inspired by <strong>cowsay</strong><br>
+    but themed around the beloved <strong>Undertale</strong> universe</p>
+  </div>
+
+  <div class="quote-box">
+    <p>"Howdy! I'm Flowey. Flowey the Flower!"</p>
+  </div>
+
+  <div class="nav-links">
+    <a href="#installation">Installation</a>
+    <a href="#usage">Usage</a>
+    <a href="#characters">Characters</a>
+    <a href="https://github.com/lazypwny751/flowey">GitHub</a>
+  </div>
+
+  <div class="flowey-ascii">
+                  ┈▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂┈                  
+             ▝▅  ╴▗▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▎  ▅▘             
+           ╴▅▅▅▅▅▅▅▅▍                     ▊▅▅▅▅▅▅▅╴           
+          ▌ ▌▍▏                               ▊▊▌ ▌          
+          ▁▂▌▎╴                               ┊▊▌▂▁          
+        ╴▗▅▅▘┊                               ┊▘▅▅▖ 
+        ╴▌▌┊  ▃▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌           ▌▄▄▄▄▄▄▄▄▄▄▄▄▖▃  ┊▌▌ 
+        ╴▌▌┊  ▘▋▎▇▇┊┊┈▋▋▎           ▎▋▋▍┊┊▇▇▊▘  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ▊   ▋▋▎   ┈▂▂▂┈   ▎▋▋   ▊ ▎▋┈  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ▄▅▅▋▋▎   ▋▅▅▋   ▎▋▋▅▅▄ ▎▋┈  ┊▌▌ 
+        ╴▄▄▖▚▝▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▚▘▄▄ 
+          ┊┈▃▂▎▎▘╴ ┈▗▂▁▁▁▁▂▖┊ ┈ ▖▂▁▁▁▁▂▖┈ ╴▘▎▎▃┈┊          
+        ▃▂━╴┊  ┗▆▁▁▆▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▆▁▁▆┛  ┊╴━▂▃        
+        ▃▂━╴┊  ▍▂▂▎▌▎▘╴ ┈▗▂▁▁▁▁▂▖┈ ╴▘▎▌▎▂▂▍  ┊╴━▂▃        
+          ▅▇▇▇▇▇▘▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▖▘▇▇▇▇▇▅          
+          ▅▇▇▘┊▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▖┊▘▇▇▅          
+            ▁▄ ▘┊▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅┊▘ ▄▁            
+              ▘▃▂▂▖▘╴┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈┈▖▘▂▂▃▘              
+  </div>
+
+  <h2>✨ Features</h2>
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>🎭 Multiple Characters</h3>
+      <p>Choose from Flowey, Sans, Papyrus, Toriel, Asgore, and Frisk</p>
+    </div>
+    <div class="feature-card">
+      <h3>💬 Random Quotes</h3>
+      <p>No message? Get a random quote from the Undertale universe</p>
+    </div>
+    <div class="feature-card">
+      <h3>🎨 Beautiful ASCII Art</h3>
+      <p>Colorful terminal art with ANSI colors</p>
+    </div>
+    <div class="feature-card">
+      <h3>⚡ Lightweight</h3>
+      <p>Pure Perl with minimal dependencies</p>
+    </div>
+  </div>
+
+  <h2 id="installation">📦 Installation</h2>
+  <div class="install-section">
+    <h3>Quick Start</h3>
+    <pre><code># Clone and install
+git clone https://github.com/lazypwny751/flowey.git
+cd flowey
+cpan install Getopt::Long::Descriptive
+
+# Try it out!
+./flowey.pl "Determination fills your soul!"</code></pre>
+
+    <h3>Pre-built Packages</h3>
+    <ul>
+      <li>📦 Debian/Ubuntu: <code>flowey-ubuntu_1.0.0_all.deb</code></li>
+      <li>🍃 Linux Mint: <code>flowey-mint_1.0.0_all.deb</code></li>
+    </ul>
+  </div>
+
+  <h2 id="usage">🛠️ Usage Examples</h2>
+  <pre><code># Random character with random quote
+flowey
+
+# Custom message with specific character
+flowey -c toriel "My child, stay safe out there."
+
+# List all available characters
+flowey --list
+
+# Generate new character from image
+flowey --generate</code></pre>
+
+  <h2 id="characters">🎯 Available Characters</h2>
+  <div class="character-list">
+    <div class="character-item">
+      <strong>🌻 flowey</strong><br>
+      The devious flower
+    </div>
+    <div class="character-item">
+      <strong>💀 sans</strong><br>
+      The laid-back skeleton
+    </div>
+    <div class="character-item">
+      <strong>🍝 papyrus</strong><br>
+      The enthusiastic skeleton
+    </div>
+    <div class="character-item">
+      <strong>🐐 toriel</strong><br>
+      The caring goat mother
+    </div>
+    <div class="character-item">
+      <strong>👑 asgore</strong><br>
+      The king of monsters
+    </div>
+    <div class="character-item">
+      <strong>👤 frisk</strong><br>
+      The determined human
+    </div>
+  </div>
+
+  <h2>🤝 Contributing</h2>
+  <p>Contributions are welcome! Feel free to open issues or submit pull requests on our <a href="https://github.com/lazypwny751/flowey">GitHub repository</a>.</p>
+
+  <div class="quote-box">
+    <p>"Stay determined!"</p>
+  </div>
+
+  <div class="footer">
+    <p>Made with ❤️ and determination<br>
+    Inspired by <strong>Undertale</strong> by Toby Fox<br>
+    Licensed under GNU GPLv3</p>
+  </div>
+</div>

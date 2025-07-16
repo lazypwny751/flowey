@@ -1,174 +1,267 @@
 ---
 layout: default
-title: "Installation Guide"
+title: Installation Guide
 permalink: /installation/
 ---
 
-# 📦 Installation Guide
+<style>
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .installation-header {
+    text-align: center;
+    margin: 40px 0;
+    border: 2px solid #fff;
+    padding: 20px;
+    background-color: #111;
+  }
+  
+  .method-section {
+    border: 1px solid #fff;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #111;
+  }
+  
+  .requirements-box {
+    border: 2px solid #fff;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #111;
+  }
+  
+  code {
+    background-color: #222;
+    color: #fff;
+    padding: 2px 6px;
+    border: 1px solid #555;
+  }
+  
+  pre {
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+    border: 1px solid #555;
+    overflow-x: auto;
+  }
+  
+  .nav-links {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .nav-links a {
+    margin: 0 15px;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+  }
+  
+  .nav-links a:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .warning-box {
+    border: 2px solid #ff6b6b;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #2d1515;
+    color: #ff6b6b;
+  }
+  
+  .success-box {
+    border: 2px solid #51cf66;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #1a2e1a;
+    color: #51cf66;
+  }
+</style>
 
-<div class="sans-says">
-  <p><em>"hey, installing stuff? sounds like you're gonna have a... good time."</em></p>
-</div>
+<div class="container">
+  <div class="installation-header">
+    <h1>📦 Installation Guide</h1>
+    <p>Get Flowey up and running on your system</p>
+  </div>
 
-## 🚀 Quick Installation
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/usage/">Usage</a>
+    <a href="/characters/">Characters</a>
+  </div>
 
-### Method 1: From Source (Recommended)
+  <div class="requirements-box">
+    <h3>⚙️ System Requirements</h3>
+    <ul>
+      <li><strong>Perl 5.10</strong> or higher</li>
+      <li><strong>CPAN</strong> package manager</li>
+      <li><strong>Terminal</strong> with ANSI color support</li>
+      <li><strong>Git</strong> (for source installation)</li>
+    </ul>
+  </div>
 
-```bash
-# Clone the repository
+  <h2>🚀 Installation Methods</h2>
+
+  <div class="method-section">
+    <h3>Method 1: From Source (Recommended)</h3>
+    <p>This is the recommended method for most users:</p>
+    
+    <pre><code># Clone the repository
 git clone https://github.com/lazypwny751/flowey.git
+
+# Navigate to the directory
 cd flowey
 
 # Install Perl dependencies
 cpan install Getopt::Long::Descriptive
 
-# Test the installation
-./flowey.pl "It works!"
-```
+# Make executable (if needed)
+chmod +x flowey.pl
 
-### Method 2: Pre-built Packages
+# Test installation
+./flowey.pl "Hello, Underground!"</code></pre>
+  </div>
 
-We provide pre-built packages for Debian-based distributions:
-
-#### Ubuntu/Debian
-```bash
-# Download the .deb package
-wget https://github.com/lazypwny751/flowey/releases/latest/download/flowey-ubuntu_1.0.0_all.deb
+  <div class="method-section">
+    <h3>Method 2: Pre-built Packages</h3>
+    <p>For Debian-based distributions:</p>
+    
+    <h4>Ubuntu/Debian:</h4>
+    <pre><code># Download the package
+wget https://github.com/lazypwny751/flowey/releases/download/v1.0.0/flowey-ubuntu_1.0.0_all.deb
 
 # Install the package
 sudo dpkg -i flowey-ubuntu_1.0.0_all.deb
 
-# Install missing dependencies (if any)
-sudo apt-get install -f
-```
+# Fix dependencies if needed
+sudo apt-get install -f</code></pre>
 
-#### Linux Mint
-```bash
-# Download the Mint-specific package
-wget https://github.com/lazypwny751/flowey/releases/latest/download/flowey-mint_1.0.0_all.deb
+    <h4>Linux Mint:</h4>
+    <pre><code># Download the package
+wget https://github.com/lazypwny751/flowey/releases/download/v1.0.0/flowey-mint_1.0.0_all.deb
 
 # Install the package
 sudo dpkg -i flowey-mint_1.0.0_all.deb
-```
 
-## 🛠️ Development Setup
+# Fix dependencies if needed
+sudo apt-get install -f</code></pre>
+  </div>
 
-For contributors and developers:
+  <div class="method-section">
+    <h3>Method 3: Direct Download</h3>
+    <p>For a quick single-file installation:</p>
+    
+    <pre><code># Download the script directly
+curl -O https://raw.githubusercontent.com/lazypwny751/flowey/main/flowey.pl
 
-```bash
-# Clone the repository
-git clone https://github.com/lazypwny751/flowey.git
-cd flowey
+# Download character files
+mkdir -p flowies/undertale
+cd flowies/undertale
+curl -O https://raw.githubusercontent.com/lazypwny751/flowey/main/flowies/undertale/flowey.flowey
+curl -O https://raw.githubusercontent.com/lazypwny751/flowey/main/flowies/undertale/sans.flowey
+# ... download other character files
 
-# Install carton for dependency management
-cpan install Carton
-
-# Install dependencies with carton
-carton install
-
-# Run with carton
-carton exec perl flowey.pl "Development mode activated!"
-```
-
-## 📋 System Requirements
-
-- **Perl**: Version 5.10 or higher
-- **Terminal**: Any ANSI color-capable terminal
-- **Dependencies**: 
-  - `Getopt::Long::Descriptive`
-  - `File::Find` (core module)
-  - `File::Which` (for character generation)
-
-## 🎨 Optional Dependencies
-
-For the best experience:
-
-- **chafa**: Required for generating custom character files
-  ```bash
-  # Ubuntu/Debian
-  sudo apt install chafa
-  
-  # Arch Linux
-  sudo pacman -S chafa
-  
-  # macOS
-  brew install chafa
-  ```
-
-## 🧪 Testing Your Installation
-
-Once installed, test Flowey with these commands:
-
-```bash
-# Default behavior (random quote with random character)
-flowey
-
-# Custom message with Flowey
-flowey "Determination fills your soul!"
-
-# Try different characters
-flowey -c sans "you're gonna have a bad time."
-flowey -c papyrus "NYEH HEH HEH!"
-flowey -c toriel "My child, you have grown so much."
-
-# List all available characters
-flowey --list
-```
-
-## 🔧 Troubleshooting
-
-### Common Issues
-
-**1. "Character file not found"**
-```bash
-# Check if assets directory exists
-ls -la /usr/share/flowey
-
-# Use custom assets directory
-flowey -a ./flowies -c flowey "Testing!"
-```
-
-**2. "Command not found: flowey"**
-```bash
-# If installed from source, use full path
-./flowey.pl "Hello world!"
-
-# Or add to PATH
-export PATH=$PATH:/path/to/flowey
-```
-
-**3. "Can't locate Getopt::Long::Descriptive"**
-```bash
-# Install missing Perl module
+# Install dependencies
 cpan install Getopt::Long::Descriptive
 
-# Or using your package manager
-sudo apt install libgetopt-long-descriptive-perl
-```
+# Make executable
+chmod +x flowey.pl</code></pre>
+  </div>
 
----
+  <h2>🔧 Post-Installation Setup</h2>
 
-<div class="toriel-says">
-  <p><strong>* Toriel offers you some pie after a successful installation</strong></p>
-  <p><em>"My child, you have done well. Now you can bring joy to the terminal with our friends from the Underground!"</em></p>
+  <div class="method-section">
+    <h3>Setting up PATH (Optional)</h3>
+    <p>To use Flowey from anywhere in your system:</p>
+    
+    <pre><code># Copy to system path
+sudo cp flowey.pl /usr/local/bin/flowey
+sudo cp -r flowies /usr/share/flowey/
+
+# Or create a symbolic link
+sudo ln -s $(pwd)/flowey.pl /usr/local/bin/flowey</code></pre>
+  </div>
+
+  <div class="method-section">
+    <h3>Configuring Assets Directory</h3>
+    <p>If you installed manually, you may need to specify the assets directory:</p>
+    
+    <pre><code># Use the -a flag to specify assets directory
+./flowey.pl -a ./flowies "Your message here"
+
+# Or set environment variable
+export FLOWEY_ASSETS_DIR="$(pwd)/flowies"
+./flowey.pl "Your message here"</code></pre>
+  </div>
+
+  <h2>✅ Verification</h2>
+
+  <div class="success-box">
+    <h3>Test Your Installation</h3>
+    <p>Run these commands to verify everything is working:</p>
+    
+    <pre><code># Check version
+flowey --version
+
+# List available characters
+flowey --list
+
+# Test with a message
+flowey "Determination fills your soul!"
+
+# Test specific character
+flowey -c sans "you're gonna have a bad time."</code></pre>
+  </div>
+
+  <h2>🐛 Troubleshooting</h2>
+
+  <div class="warning-box">
+    <h3>Common Issues</h3>
+    
+    <h4>Permission Denied</h4>
+    <pre><code># Make the script executable
+chmod +x flowey.pl</code></pre>
+    
+    <h4>Module Not Found</h4>
+    <pre><code># Install missing Perl modules
+cpan install Getopt::Long::Descriptive
+cpan install File::Find</code></pre>
+    
+    <h4>No Characters Found</h4>
+    <pre><code># Check assets directory
+flowey --list
+
+# Specify correct path
+flowey -a /path/to/flowies "message"</code></pre>
+    
+    <h4>ANSI Colors Not Working</h4>
+    <p>Make sure your terminal supports ANSI colors. Try a different terminal emulator or check your <code>TERM</code> environment variable.</p>
+  </div>
+
+  <div class="method-section">
+    <h3>🆘 Getting Help</h3>
+    <p>If you're still having issues:</p>
+    <ul>
+      <li>Check the <a href="https://github.com/lazypwny751/flowey/issues">GitHub Issues</a></li>
+      <li>Read the <a href="/usage/">Usage Guide</a></li>
+      <li>Open a new issue with your error details</li>
+    </ul>
+  </div>
+
+  <div style="text-align: center; margin: 40px 0; padding: 20px; border: 1px solid #fff; background-color: #111;">
+    <p><em>"You feel like you're going to have a good time configuring this."</em></p>
+  </div>
 </div>
-
-<style>
-.sans-says {
-  background: #87ceeb;
-  border-left: 5px solid #4682b4;
-  padding: 1rem;
-  margin: 1.5rem 0;
-  border-radius: 5px;
-  font-style: italic;
-}
-
-.toriel-says {
-  background: #f0e68c;
-  border: 3px solid #daa520;
-  padding: 1.5rem;
-  margin: 2rem 0;
-  border-radius: 10px;
-  text-align: center;
-}
-</style>

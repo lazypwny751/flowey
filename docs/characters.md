@@ -1,253 +1,421 @@
 ---
 layout: default
-title: "Character Gallery"
+title: Character Gallery
 permalink: /characters/
 ---
 
-# 🎭 Character Gallery
-
-<div class="asgore-says">
-  <p><em>"These are the souls of the Underground... Each one unique, each one determined."</em></p>
-</div>
-
-Meet the wonderful cast of characters available in Flowey! Each character brings their own personality and charm to your terminal messages.
-
-## 🌻 Flowey the Flower
-
-<div class="character-showcase">
-  <div class="character-info">
-    <h3>The Friendly Flower</h3>
-    <p><strong>Personality:</strong> Cheerful, helpful... or is he? 😈</p>
-    <p><strong>Best for:</strong> Welcoming messages, tutorials, or when you want that extra bit of... determination</p>
-    <p><strong>Fun Fact:</strong> His smile is never just a smile</p>
-  </div>
-  <div class="character-example">
-    <pre><code>flowey -c flowey "Howdy! I'm Flowey!"</code></pre>
-  </div>
-</div>
-
----
-
-## 💀 Sans the Skeleton
-
-<div class="character-showcase">
-  <div class="character-info">
-    <h3>The Laid-back Sentinel</h3>
-    <p><strong>Personality:</strong> Relaxed, punny, surprisingly deep</p>
-    <p><strong>Best for:</strong> Casual messages, jokes, debugging outputs</p>
-    <p><strong>Fun Fact:</strong> Always speaks in lowercase (he's too lazy for caps)</p>
-  </div>
-  <div class="character-example">
-    <pre><code>flowey -c sans "you're gonna have a bad time."</code></pre>
-  </div>
-</div>
-
----
-
-## 🍝 Papyrus the Skeleton
-
-<div class="character-showcase">
-  <div class="character-info">
-    <h3>The Great Papyrus</h3>
-    <p><strong>Personality:</strong> ENTHUSIASTIC! CONFIDENT! BELIEVES IN YOU!</p>
-    <p><strong>Best for:</strong> Motivational messages, success notifications, spaghetti recipes</p>
-    <p><strong>Fun Fact:</strong> Everything he says is in CAPITAL LETTERS because he's just that excited</p>
-  </div>
-  <div class="character-example">
-    <pre><code>flowey -c papyrus "NYEH HEH HEH! I, THE GREAT PAPYRUS, BELIEVE IN YOU!"</code></pre>
-  </div>
-</div>
-
----
-
-## 🐐 Toriel the Caretaker
-
-<div class="character-showcase">
-  <div class="character-info">
-    <h3>The Goat Mother</h3>
-    <p><strong>Personality:</strong> Caring, protective, smells like cinnamon and butterscotch</p>
-    <p><strong>Best for:</strong> Gentle reminders, warnings, nurturing messages</p>
-    <p><strong>Fun Fact:</strong> She makes the best pie in the Underground</p>
-  </div>
-  <div class="character-example">
-    <pre><code>flowey -c toriel "My child, stay safe out there."</code></pre>
-  </div>
-</div>
-
----
-
-## 👑 Asgore the King
-
-<div class="character-showcase">
-  <div class="character-info">
-    <h3>The King of Monsters</h3>
-    <p><strong>Personality:</strong> Gentle giant, loves his flowers, carries heavy burdens</p>
-    <p><strong>Best for:</strong> Formal announcements, important messages, contemplative moments</p>
-    <p><strong>Fun Fact:</strong> Often prefers peaceful silence over words</p>
-  </div>
-  <div class="character-example">
-    <pre><code>flowey -c asgore "The flowers are blooming nicely today."</code></pre>
-  </div>
-</div>
-
----
-
-## 👤 Frisk the Human
-
-<div class="character-showcase">
-  <div class="character-info">
-    <h3>The Determined Child</h3>
-    <p><strong>Personality:</strong> Silent but determined, actions speak louder than words</p>
-    <p><strong>Best for:</strong> Simple acknowledgments, milestone celebrations</p>
-    <p><strong>Fun Fact:</strong> Their determination can literally save and reload reality</p>
-  </div>
-  <div class="character-example">
-    <pre><code>flowey -c frisk "* You feel determined."</code></pre>
-  </div>
-</div>
-
----
-
-## 🎨 Character Usage Tips
-
-### Matching Character to Message
-
-- **🌻 Flowey**: Tutorial messages, introductions, anything that needs a "friendly" touch
-- **💀 Sans**: Error messages, casual notifications, debugging info
-- **🍝 Papyrus**: Success messages, motivational quotes, celebration announcements  
-- **🐐 Toriel**: Warning messages, helpful reminders, configuration prompts
-- **👑 Asgore**: System status, important announcements, formal communications
-- **👤 Frisk**: Progress indicators, completion messages, simple confirmations
-
-### Context Examples
-
-```bash
-# System startup
-flowey -c flowey "Howdy! System starting up!"
-
-# Build success
-flowey -c papyrus "NYEH! BUILD COMPLETED SUCCESSFULLY!"
-
-# Warning message  
-flowey -c toriel "My child, remember to backup your data."
-
-# Error occurred
-flowey -c sans "whoops. looks like something went wrong."
-
-# Task completed
-flowey -c frisk "* You completed the task with determination."
-
-# Server status
-flowey -c asgore "The server garden is flourishing."
-```
-
-## 🛠️ Creating Custom Characters
-
-Want to add your own characters? Use the character generator:
-
-```bash
-flowey --generate
-```
-
-### Character Creation Process
-
-1. **Prepare an Image**: Any format supported by `chafa`
-2. **Run Generator**: Follow the interactive prompts
-3. **Choose Output Name**: Will automatically add `.flowey` extension
-4. **Set Author**: Optional credit field
-
-### Character File Structure
-
-Your custom characters follow this format:
-
-```
-Meta:
-author = YourName
-
-Context:
-(Optional context or description)
-
-Data:
-(ASCII art with ANSI color codes)
-```
-
----
-
-<div class="determination-box">
-  <h3>🌟 Which Character Are You?</h3>
-  <p><strong>Take our personality quiz!</strong></p>
-  <ul>
-    <li>🌻 <strong>Friendly and helpful:</strong> You're like Flowey!</li>
-    <li>💀 <strong>Laid-back and funny:</strong> You're like Sans!</li>
-    <li>🍝 <strong>Enthusiastic and optimistic:</strong> You're like Papyrus!</li>
-    <li>🐐 <strong>Caring and protective:</strong> You're like Toriel!</li>
-    <li>👑 <strong>Thoughtful and responsible:</strong> You're like Asgore!</li>
-    <li>👤 <strong>Determined and actions-oriented:</strong> You're like Frisk!</li>
-  </ul>
-</div>
-
 <style>
-.asgore-says {
-  background: linear-gradient(135deg, #800080, #4b0082);
-  color: #f4e4bc;
-  padding: 1.5rem;
-  margin: 2rem 0;
-  border-radius: 10px;
-  text-align: center;
-  border: 3px solid #gold;
-}
-
-.character-showcase {
-  display: flex;
-  gap: 2rem;
-  margin: 2rem 0;
-  padding: 1.5rem;
-  background: #f8f9fa;
-  border-radius: 10px;
-  border-left: 5px solid #007bff;
-}
-
-.character-info {
-  flex: 2;
-}
-
-.character-example {
-  flex: 1;
-  background: #2d3748;
-  color: #e2e8f0;
-  padding: 1rem;
-  border-radius: 5px;
-  font-family: 'Courier New', monospace;
-}
-
-.character-example pre {
-  margin: 0;
-  white-space: pre-wrap;
-}
-
-.determination-box {
-  background: linear-gradient(135deg, #ff6b6b, #feca57);
-  color: white;
-  padding: 2rem;
-  border-radius: 10px;
-  margin: 2rem 0;
-  border: 3px solid white;
-}
-
-.determination-box h3 {
-  margin-top: 0;
-  color: white;
-}
-
-.determination-box ul {
-  text-align: left;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-@media (max-width: 768px) {
-  .character-showcase {
-    flex-direction: column;
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
   }
-}
+  
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .characters-header {
+    text-align: center;
+    margin: 40px 0;
+    border: 2px solid #fff;
+    padding: 20px;
+    background-color: #111;
+  }
+  
+  .character-card {
+    border: 2px solid #fff;
+    padding: 20px;
+    margin: 30px 0;
+    background-color: #111;
+  }
+  
+  .character-info {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 20px;
+    align-items: start;
+  }
+  
+  .character-details h3 {
+    margin-top: 0;
+    color: #fff;
+    font-size: 1.5em;
+  }
+  
+  .character-ascii {
+    font-family: monospace;
+    font-size: 6px;
+    line-height: 1;
+    color: #fff;
+    white-space: pre;
+    overflow-x: auto;
+    background-color: #000;
+    padding: 10px;
+    border: 1px solid #333;
+  }
+  
+  .personality-box {
+    border: 1px solid #666;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #222;
+  }
+  
+  .quotes-box {
+    border: 1px solid #666;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #222;
+  }
+  
+  .example-usage {
+    border: 1px solid #51cf66;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #1a2e1a;
+    color: #51cf66;
+  }
+  
+  code {
+    background-color: #222;
+    color: #fff;
+    padding: 2px 6px;
+    border: 1px solid #555;
+  }
+  
+  pre {
+    background-color: #222;
+    color: #fff;
+    padding: 10px;
+    border: 1px solid #555;
+    overflow-x: auto;
+    font-size: 12px;
+  }
+  
+  .nav-links {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .nav-links a {
+    margin: 0 15px;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+  }
+  
+  .nav-links a:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  @media (max-width: 768px) {
+    .character-info {
+      grid-template-columns: 1fr;
+    }
+    
+    .character-ascii {
+      font-size: 4px;
+    }
+  }
 </style>
+
+<div class="container">
+  <div class="characters-header">
+    <h1>🎭 Character Gallery</h1>
+    <p>Meet the cast of the Underground</p>
+  </div>
+
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/installation/">Installation</a>
+    <a href="/usage/">Usage</a>
+  </div>
+
+  <!-- Flowey -->
+  <div class="character-card">
+    <div class="character-info">
+      <div class="character-details">
+        <h3>🌻 Flowey</h3>
+        <div class="personality-box">
+          <h4>Personality:</h4>
+          <p>The devious flower who greets you at the beginning of your journey. Don't let his cute appearance fool you - there's more to Flowey than meets the eye.</p>
+          <ul>
+            <li>Manipulative and cunning</li>
+            <li>Cheerfully malicious</li>
+            <li>Knows more than he lets on</li>
+            <li>Has a complicated past</li>
+          </ul>
+        </div>
+        
+        <div class="quotes-box">
+          <h4>Famous Quotes:</h4>
+          <p><em>"Howdy! I'm Flowey. Flowey the Flower!"</em></p>
+          <p><em>"In this world, it's kill or be killed!"</em></p>
+          <p><em>"You really ARE an idiot."</em></p>
+        </div>
+        
+        <div class="example-usage">
+          <h4>Usage:</h4>
+          <pre><code>flowey -c flowey "Your message"</code></pre>
+        </div>
+      </div>
+      
+      <div class="character-ascii">
+                  ┈▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂┈                  
+             ▝▅  ╴▗▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▎  ▅▘             
+           ╴▅▅▅▅▅▅▅▅▍                     ▊▅▅▅▅▅▅▅╴           
+          ▌ ▌▍▏                               ▊▊▌ ▌          
+          ▁▂▌▎╴                               ┊▊▌▂▁          
+        ╴▗▅▅▘┊                               ┊▘▅▅▖ 
+        ╴▌▌┊  ▃▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌           ▌▄▄▄▄▄▄▄▄▄▄▄▄▖▃  ┊▌▌ 
+        ╴▌▌┊  ▘▋▎▇▇┊┊┈▋▋▎           ▎▋▋▍┊┊▇▇▊▘  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ▊   ▋▋▎   ┈▂▂▂┈   ▎▋▋   ▊ ▎▋┈  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ▄▅▅▋▋▎   ▋▅▅▋   ▎▋▋▅▅▄ ▎▋┈  ┊▌▌ 
+        ╴▄▄▖▚▝▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▚▘▄▄ 
+      </div>
+    </div>
+  </div>
+
+  <!-- Sans -->
+  <div class="character-card">
+    <div class="character-info">
+      <div class="character-details">
+        <h3>💀 Sans</h3>
+        <div class="personality-box">
+          <h4>Personality:</h4>
+          <p>The laid-back skeleton brother who loves puns and taking shortcuts. He appears lazy but is incredibly perceptive and powerful.</p>
+          <ul>
+            <li>Lazy and carefree on the surface</li>
+            <li>Master of puns and jokes</li>
+            <li>Extremely observant</li>
+            <li>Secretly very powerful</li>
+          </ul>
+        </div>
+        
+        <div class="quotes-box">
+          <h4>Famous Quotes:</h4>
+          <p><em>"it's a beautiful day outside. birds are singing, flowers are blooming..."</em></p>
+          <p><em>"you're gonna have a bad time."</em></p>
+          <p><em>"nah, i'm rootin' for ya, kid."</em></p>
+        </div>
+        
+        <div class="example-usage">
+          <h4>Usage:</h4>
+          <pre><code>flowey -c sans "bone to pick with someone?"</code></pre>
+        </div>
+      </div>
+      
+      <div class="character-ascii">
+                  ┈▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂┈                  
+             ▝▅  ╴▗▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▎  ▅▘             
+           ╴▅▅▅▅▅▅▅▅▍                     ▊▅▅▅▅▅▅▅╴           
+          ▌ ▌▍▏                               ▊▊▌ ▌          
+          ▁▂▌▎╴                               ┊▊▌▂▁          
+        ╴▗▅▅▘┊                               ┊▘▅▅▖ 
+        ╴▌▌┊  ▃▗●●●●●●●●●●●●●●▌           ▌●●●●●●●●●●●●●▖▃  ┊▌▌ 
+        ╴▌▌┊  ▘▋▎   ┊┊┈▋▋▎           ▎▋▋▍┊┊   ▊▘  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ▊   ▋▋▎   ┈▂▂▂┈   ▎▋▋   ▊ ▎▋┈  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ████▋▋▎   ▋███▋   ▎▋▋████ ▎▋┈  ┊▌▌ 
+        ╴▄▄▖▚▝▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▚▘▄▄ 
+      </div>
+    </div>
+  </div>
+
+  <!-- Papyrus -->
+  <div class="character-card">
+    <div class="character-info">
+      <div class="character-details">
+        <h3>🍝 Papyrus</h3>
+        <div class="personality-box">
+          <h4>Personality:</h4>
+          <p>The enthusiastic skeleton brother who dreams of joining the Royal Guard. He's kind-hearted, confident, and loves making friends.</p>
+          <ul>
+            <li>Eternally optimistic</li>
+            <li>Speaks in ALL CAPS</li>
+            <li>Loves puzzles and spaghetti</li>
+            <li>Wants to capture a human (to be friends)</li>
+          </ul>
+        </div>
+        
+        <div class="quotes-box">
+          <h4>Famous Quotes:</h4>
+          <p><em>"NYEH HEH HEH!"</em></p>
+          <p><em>"I, THE GREAT PAPYRUS, WILL CAPTURE A HUMAN!"</em></p>
+          <p><em>"DESPITE EVERYTHING, IT'S STILL YOU."</em></p>
+        </div>
+        
+        <div class="example-usage">
+          <h4>Usage:</h4>
+          <pre><code>flowey -c papyrus "NYEH HEH HEH!"</code></pre>
+        </div>
+      </div>
+      
+      <div class="character-ascii">
+                  ┈▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂┈                  
+             ▝▅  ╴▗▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▎  ▅▘             
+           ╴▅▅▅▅▅▅▅▅▍                     ▊▅▅▅▅▅▅▅╴           
+          ▌ ▌▍▏          ████████          ▊▊▌ ▌          
+          ▁▂▌▎╴         ██      ██         ┊▊▌▂▁          
+        ╴▗▅▅▘┊                               ┊▘▅▅▖ 
+        ╴▌▌┊  ▃▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌ ████████  ▌▄▄▄▄▄▄▄▄▄▄▄▄▖▃  ┊▌▌ 
+        ╴▌▌┊  ▘▋▎▇▇┊┊┈▋▋▎      ██      ██ ▎▋▋▍┊┊▇▇▊▘  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ▊   ▋▋▎                  ▎▋▋   ▊ ▎▋┈  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ████▋▋▎   ▋███▋         ▎▋▋████ ▎▋┈  ┊▌▌ 
+        ╴▄▄▖▚▝▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▚▘▄▄ 
+      </div>
+    </div>
+  </div>
+
+  <!-- Toriel -->
+  <div class="character-card">
+    <div class="character-info">
+      <div class="character-details">
+        <h3>🐐 Toriel</h3>
+        <div class="personality-box">
+          <h4>Personality:</h4>
+          <p>The caring goat mother who protects lost souls in the Ruins. She's nurturing, protective, and loves baking butterscotch cinnamon pie.</p>
+          <ul>
+            <li>Motherly and protective</li>
+            <li>Loves teaching and helping</li>
+            <li>Expert baker</li>
+            <li>Has a complicated past</li>
+          </ul>
+        </div>
+        
+        <div class="quotes-box">
+          <h4>Famous Quotes:</h4>
+          <p><em>"My child, stay safe out there."</em></p>
+          <p><em>"I have to do this."</em></p>
+          <p><em>"You really are no different than them!"</em></p>
+        </div>
+        
+        <div class="example-usage">
+          <h4>Usage:</h4>
+          <pre><code>flowey -c toriel "Stay determined, my child."</code></pre>
+        </div>
+      </div>
+      
+      <div class="character-ascii">
+                  ┈▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂┈                  
+             ▝▅  ╴▗▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▎  ▅▘             
+           ╴▅▅▅▅▅▅▅▅▍       ♥♥♥       ▊▅▅▅▅▅▅▅╴           
+          ▌ ▌▍▏          ♥♥♥♥♥♥♥          ▊▊▌ ▌          
+          ▁▂▌▎╴         ♥♥♥♥♥♥♥         ┊▊▌▂▁          
+        ╴▗▅▅▘┊                               ┊▘▅▅▖ 
+        ╴▌▌┊  ▃▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌           ▌▄▄▄▄▄▄▄▄▄▄▄▄▖▃  ┊▌▌ 
+        ╴▌▌┊  ▘▋▎▇▇┊┊┈▋▋▎           ▎▋▋▍┊┊▇▇▊▘  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ▊   ▋▋▎   ┈▂▂▂┈   ▎▋▋   ▊ ▎▋┈  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ████▋▋▎   ▋███▋   ▎▋▋████ ▎▋┈  ┊▌▌ 
+        ╴▄▄▖▚▝▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▚▘▄▄ 
+      </div>
+    </div>
+  </div>
+
+  <!-- Asgore -->
+  <div class="character-card">
+    <div class="character-info">
+      <div class="character-details">
+        <h3>👑 Asgore</h3>
+        <div class="personality-box">
+          <h4>Personality:</h4>
+          <p>The king of monsters who tends to his garden. He's gentle and kind-hearted but burdened by duty and past mistakes.</p>
+          <ul>
+            <li>Gentle giant with a heavy burden</li>
+            <li>Loves gardening and tea</li>
+            <li>Awkward but well-meaning</li>
+            <li>Torn between duty and compassion</li>
+          </ul>
+        </div>
+        
+        <div class="quotes-box">
+          <h4>Famous Quotes:</h4>
+          <p><em>"Howdy!"</em></p>
+          <p><em>"Human... it was nice to meet you."</em></p>
+          <p><em>"Oh! I am sorry, I did not see you there."</em></p>
+        </div>
+        
+        <div class="example-usage">
+          <h4>Usage:</h4>
+          <pre><code>flowey -c asgore "The flowers here are beautiful."</code></pre>
+        </div>
+      </div>
+      
+      <div class="character-ascii">
+                  ┈▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂┈                  
+             ▝▅  ╴▗▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▎  ▅▘             
+           ╴▅▅▅▅▅▅▅▅▍       👑       ▊▅▅▅▅▅▅▅╴           
+          ▌ ▌▍▏          👑👑👑          ▊▊▌ ▌          
+          ▁▂▌▎╴         ◥◥◥◥◥◥◥         ┊▊▌▂▁          
+        ╴▗▅▅▘┊                               ┊▘▅▅▖ 
+        ╴▌▌┊  ▃▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌           ▌▄▄▄▄▄▄▄▄▄▄▄▄▖▃  ┊▌▌ 
+        ╴▌▌┊  ▘▋▎▇▇┊┊┈▋▋▎           ▎▋▋▍┊┊▇▇▊▘  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ▊   ▋▋▎   ┈▂▂▂┈   ▎▋▋   ▊ ▎▋┈  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ████▋▋▎   ▋███▋   ▎▋▋████ ▎▋┈  ┊▌▌ 
+        ╴▄▄▖▚▝▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▚▘▄▄ 
+      </div>
+    </div>
+  </div>
+
+  <!-- Frisk -->
+  <div class="character-card">
+    <div class="character-info">
+      <div class="character-details">
+        <h3>👤 Frisk</h3>
+        <div class="personality-box">
+          <h4>Personality:</h4>
+          <p>The determined human who fell into the Underground. Silent but expressive, they possess the power to SAVE and show compassion to all.</p>
+          <ul>
+            <li>Silent protagonist</li>
+            <li>Filled with determination</li>
+            <li>Can show mercy to everyone</li>
+            <li>Has the power to SAVE</li>
+          </ul>
+        </div>
+        
+        <div class="quotes-box">
+          <h4>Famous Quotes:</h4>
+          <p><em>* You are filled with determination.</em></p>
+          <p><em>* (They don't seem much for conversation.)</em></p>
+          <p><em>* Stay determined!</em></p>
+        </div>
+        
+        <div class="example-usage">
+          <h4>Usage:</h4>
+          <pre><code>flowey -c frisk "* You feel determined."</code></pre>
+        </div>
+      </div>
+      
+      <div class="character-ascii">
+                  ┈▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂▂┈                  
+             ▝▅  ╴▗▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▅▎  ▅▘             
+           ╴▅▅▅▅▅▅▅▅▍                     ▊▅▅▅▅▅▅▅╴           
+          ▌ ▌▍▏         ★         ▊▊▌ ▌          
+          ▁▂▌▎╴        ★★★        ┊▊▌▂▁          
+        ╴▗▅▅▘┊                               ┊▘▅▅▖ 
+        ╴▌▌┊  ▃▗▄▄▄▄▄▄▄▄▄▄▄▄▄▄▌           ▌▄▄▄▄▄▄▄▄▄▄▄▄▖▃  ┊▌▌ 
+        ╴▌▌┊  ▘▋▎▇▇┊┊┈▋▋▎           ▎▋▋▍┊┊▇▇▊▘  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ▊   ▋▋▎   ┈▂▂▂┈   ▎▋▋   ▊ ▎▋┈  ┊▌▌ 
+        ╴▌▌┊  ┈▋▎ ____▋▋▎   ▋___▋   ▎▋▋____ ▎▋┈  ┊▌▌ 
+        ╴▄▄▖▚▝▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▚▘▄▄ 
+      </div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin: 40px 0; padding: 20px; border: 2px solid #fff; background-color: #111;">
+    <h3>🎨 Creating Custom Characters</h3>
+    <p>Want to add your own character? Use the character generator:</p>
+    <pre><code>flowey --generate</code></pre>
+    <p>This will help you create new .flowey files from images using the <code>chafa</code> tool.</p>
+  </div>
+
+  <div style="text-align: center; margin: 40px 0; padding: 20px; border: 1px solid #fff; background-color: #111;">
+    <p><em>"You feel like you've made some great friends today."</em></p>
+  </div>
+</div>

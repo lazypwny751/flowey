@@ -1,46 +1,47 @@
-# Flowey Documentation Site
-title: "Flowey - Undertale ASCII Art Tool"
-description: "A delightful ASCII art tool inspired by cowsay but themed around the beloved Undertale universe"
+# GitHub Pages configuration for Flowey
+title: Flowey
+description: A delightful ASCII art tool inspired by cowsay but themed around the beloved Undertale universe
 url: "https://lazypwny751.github.io"
 baseurl: "/flowey"
 
-# Build settings
-markdown: kramdown
-highlighter: rouge
-theme: minima
+# Theme settings
+remote_theme: pages-themes/minimal@v0.2.0
+plugins:
+- jekyll-remote-theme
 
-# Undertale themed collections
-collections:
-  characters:
-    output: true
-    permalink: /:collection/:name/
+# Site settings
+author:
+  name: "lazypwny751"
+  email: "your-email@example.com"
 
 # Navigation
 header_pages:
   - index.md
-  - characters.md
   - installation.md
   - usage.md
+  - characters.md
+  - contributing.md
+
+# GitHub repository
+github:
+  repository_url: https://github.com/lazypwny751/flowey
+  repository_name: flowey
 
 # Social links
-github_username: lazypwny751
+social_links:
+  github: lazypwny751
 
-# Undertale themed settings
-undertale_quotes:
-  - "Stay determined!"
-  - "It's a beautiful day outside..."
-  - "You feel your sins crawling on your back"
-  - "Determination fills your soul"
-
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
+# Enable syntax highlighting
+highlighter: rouge
+markdown: kramdown
 
 # Exclude files
 exclude:
   - Gemfile
   - Gemfile.lock
-  - node_modules
-  - vendor
+  - README.md
+  - vendor/
+
+# Include files
+include:
+  - _pages/

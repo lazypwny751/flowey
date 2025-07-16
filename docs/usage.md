@@ -1,247 +1,356 @@
 ---
 layout: default
-title: "Usage Guide"
+title: Usage Guide
 permalink: /usage/
 ---
 
-# 📖 Usage Guide
-
-<div class="papyrus-says">
-  <p><strong>"NYEH HEH HEH! THE GREAT PAPYRUS WILL TEACH YOU HOW TO USE FLOWEY!"</strong></p>
-</div>
-
-## 🎯 Basic Usage
-
-### Default Behavior
-```bash
-# Random character with random Undertale quote
-flowey
-
-# Custom message with random character  
-flowey "Your custom message here"
-```
-
-### Character Selection
-```bash
-# Specify a character
-flowey -c flowey "Howdy! I'm Flowey!"
-flowey -c sans "you're gonna have a bad time."
-flowey -c papyrus "NYEH HEH HEH!"
-flowey -c toriel "My child..."
-flowey -c asgore "..."
-flowey -c frisk "..."
-```
-
-### Input Methods
-
-**Command Line Arguments:**
-```bash
-flowey "Determination fills your soul!"
-```
-
-**Standard Input (Pipe):**
-```bash
-echo "Stay determined!" | flowey
-cat message.txt | flowey -c sans
-```
-
-**Interactive Mode:**
-```bash
-# If no message provided, shows random quote
-flowey -c toriel
-```
-
-## ⚙️ Command Line Options
-
-| Option | Short | Description | Example |
-|--------|-------|-------------|---------|
-| `--character` | `-c` | Select character | `flowey -c sans "hi."` |
-| `--assets` | `-a` | Custom assets directory | `flowey -a ./my-flowies` |
-| `--list` | `-l` | List available characters | `flowey --list` |
-| `--random` | `-r` | Force random character | `flowey -r "surprise me!"` |
-| `--quiet` | `-q` | Suppress message box | `flowey -q -c flowey` |
-| `--generate` | `-g` | Character generator mode | `flowey --generate` |
-| `--version` | `-v` | Show version | `flowey --version` |
-| `--help` | `-h` | Show help | `flowey --help` |
-
-## 🎨 Character Generator
-
-Create your own character files:
-
-```bash
-flowey --generate
-```
-
-This interactive mode will guide you through:
-1. **Image Path**: Path to your source image
-2. **Output File**: Name for your `.flowey` file  
-3. **Author**: Your name (optional)
-
-**Requirements:** `chafa` must be installed for image conversion.
-
-### Character File Format
-
-Flowey uses a simple format for character files:
-
-```
-Meta:
-author = lazypwny751
-
-Context:
-
-Data:
-[ASCII art content with ANSI color codes]
-```
-
-## 🌟 Advanced Usage
-
-### Custom Assets Directory
-```bash
-# Use a different character collection
-flowey -a /path/to/custom/characters -c mycharacter "Hello!"
-
-# Development testing
-flowey -a ./flowies -c flowey "Testing new character!"
-```
-
-### Quiet Mode (ASCII Only)
-```bash
-# Show only the character, no message box
-flowey -q -c sans
-
-# Useful for scripts or when you only want the ASCII art
-echo "Silent message" | flowey -q -c toriel
-```
-
-### Random Character Selection
-```bash
-# Force random character even if one is specified
-flowey -r "Surprise me with any character!"
-
-# Random character with random quote
-flowey -r
-```
-
-## 📜 Example Scripts
-
-### Daily Motivation Script
-```bash
-#!/bin/bash
-# daily-motivation.sh
-
-QUOTES=(
-    "Stay determined!"
-    "Believe in yourself!"
-    "You can do this!"
-    "Don't give up!"
-    "Your journey continues..."
-)
-
-RANDOM_QUOTE=${QUOTES[$RANDOM % ${#QUOTES[@]}]}
-flowey -c toriel "$RANDOM_QUOTE"
-```
-
-### Fortune with Flowey
-```bash
-# Combine with fortune command
-fortune | flowey -c sans
-
-# Or create a function
-flowey-fortune() {
-    fortune | flowey -c ${1:-flowey}
-}
-```
-
-### Git Commit Messages
-```bash
-# Add some personality to your commits
-git log --oneline -1 | flowey -c flowey
-```
-
-## 🎪 Character Personalities
-
-Each character has their unique speaking style:
-
-### 🌻 Flowey
-- Cheerful but sinister
-- *"Howdy! I'm Flowey. Flowey the Flower!"*
-
-### 💀 Sans  
-- Laid-back, lowercase
-- *"you're gonna have a bad time."*
-
-### 🍝 Papyrus
-- ENTHUSIASTIC, UPPERCASE
-- *"NYEH HEH HEH! I, THE GREAT PAPYRUS..."*
-
-### 🐐 Toriel
-- Caring, maternal
-- *"My child, stay safe out there."*
-
-### 👑 Asgore
-- Usually silent, contemplative
-- *"..."* (speaks through presence)
-
-### 👤 Frisk
-- Silent protagonist
-- *"..."* (actions speak louder)
-
----
-
-<div class="flowey-tips">
-  <h3>🌻 Flowey's Pro Tips</h3>
-  <ul>
-    <li><strong>Tip 1:</strong> Use <code>flowey --list</code> to discover all available characters</li>
-    <li><strong>Tip 2:</strong> Pipe long text files for dramatic character presentations</li>
-    <li><strong>Tip 3:</strong> Create custom characters with your own images using <code>--generate</code></li>
-    <li><strong>Tip 4:</strong> Add flowey to your shell prompt for daily motivation!</li>
-  </ul>
-</div>
-
 <style>
-.papyrus-says {
-  background: #ffa500;
-  border: 3px solid #ff8c00;
-  padding: 1.5rem;
-  margin: 2rem 0;
-  border-radius: 10px;
-  text-align: center;
-  font-weight: bold;
-  color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
-}
-
-.flowey-tips {
-  background: linear-gradient(135deg, #4a7c23, #2d5016);
-  color: #f4e4bc;
-  padding: 2rem;
-  border-radius: 10px;
-  border: 3px solid #fcff4a;
-}
-
-.flowey-tips h3 {
-  color: #fcff4a;
-  margin-top: 0;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1.5rem 0;
-}
-
-th, td {
-  border: 1px solid #dee2e6;
-  padding: 0.75rem;
-  text-align: left;
-}
-
-th {
-  background-color: #f8f9fa;
-  font-weight: bold;
-}
-
-tr:nth-child(even) {
-  background-color: #f8f9fa;
-}
+  body {
+    background-color: #000;
+    color: #fff;
+    font-family: 'Courier New', monospace;
+    line-height: 1.6;
+  }
+  
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .usage-header {
+    text-align: center;
+    margin: 40px 0;
+    border: 2px solid #fff;
+    padding: 20px;
+    background-color: #111;
+  }
+  
+  .command-section {
+    border: 1px solid #fff;
+    padding: 20px;
+    margin: 20px 0;
+    background-color: #111;
+  }
+  
+  .example-box {
+    border: 2px solid #51cf66;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #1a2e1a;
+    color: #51cf66;
+  }
+  
+  .tip-box {
+    border: 2px solid #ffd43b;
+    padding: 15px;
+    margin: 20px 0;
+    background-color: #2d2a1a;
+    color: #ffd43b;
+  }
+  
+  code {
+    background-color: #222;
+    color: #fff;
+    padding: 2px 6px;
+    border: 1px solid #555;
+  }
+  
+  pre {
+    background-color: #222;
+    color: #fff;
+    padding: 15px;
+    border: 1px solid #555;
+    overflow-x: auto;
+  }
+  
+  .nav-links {
+    text-align: center;
+    margin: 30px 0;
+  }
+  
+  .nav-links a {
+    margin: 0 15px;
+    padding: 10px 20px;
+    border: 1px solid #fff;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+  }
+  
+  .nav-links a:hover {
+    background-color: #fff;
+    color: #000;
+  }
+  
+  .option-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+  }
+  
+  .option-table th,
+  .option-table td {
+    border: 1px solid #fff;
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .option-table th {
+    background-color: #222;
+  }
 </style>
+
+<div class="container">
+  <div class="usage-header">
+    <h1>🛠️ Usage Guide</h1>
+    <p>Learn how to use Flowey like a pro!</p>
+  </div>
+
+  <div class="nav-links">
+    <a href="/">Home</a>
+    <a href="/installation/">Installation</a>
+    <a href="/characters/">Characters</a>
+  </div>
+
+  <h2>📝 Basic Usage</h2>
+
+  <div class="command-section">
+    <h3>Simple Message</h3>
+    <p>The most basic way to use Flowey:</p>
+    <pre><code>flowey "Your message here"</code></pre>
+    
+    <div class="example-box">
+      <h4>Example:</h4>
+      <pre><code>$ flowey "Determination fills your soul!"</code></pre>
+    </div>
+  </div>
+
+  <div class="command-section">
+    <h3>Random Quote</h3>
+    <p>Let Flowey surprise you with a random Undertale quote:</p>
+    <pre><code>flowey</code></pre>
+    
+    <div class="example-box">
+      <h4>Example Output:</h4>
+      <pre><code>$ flowey
+ ___________________________________
+| It's a beautiful day outside.      |
+| Birds are singing, flowers are     |
+| blooming...                        |
+|___________________________________|</code></pre>
+    </div>
+  </div>
+
+  <h2>🎭 Character Selection</h2>
+
+  <div class="command-section">
+    <h3>Choose a Specific Character</h3>
+    <p>Use the <code>-c</code> or <code>--character</code> flag:</p>
+    <pre><code>flowey -c CHARACTER_NAME "message"
+flowey --character CHARACTER_NAME "message"</code></pre>
+    
+    <div class="example-box">
+      <h4>Examples:</h4>
+      <pre><code># Sans being Sans
+flowey -c sans "you're gonna have a bad time."
+
+# Papyrus being enthusiastic
+flowey -c papyrus "NYEH HEH HEH!"
+
+# Toriel being caring
+flowey -c toriel "My child, stay safe out there."
+
+# Asgore being awkward
+flowey -c asgore "Howdy!"</code></pre>
+    </div>
+  </div>
+
+  <div class="command-section">
+    <h3>Random Character</h3>
+    <p>Let fate decide with the <code>-r</code> or <code>--random</code> flag:</p>
+    <pre><code>flowey -r "message"
+flowey --random "message"</code></pre>
+  </div>
+
+  <h2>📋 Command Line Options</h2>
+
+  <table class="option-table">
+    <thead>
+      <tr>
+        <th>Short</th>
+        <th>Long</th>
+        <th>Description</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>-c</code></td>
+        <td><code>--character</code></td>
+        <td>Set character</td>
+        <td><code>-c sans</code></td>
+      </tr>
+      <tr>
+        <td><code>-a</code></td>
+        <td><code>--assets</code></td>
+        <td>Set assets directory</td>
+        <td><code>-a /path/to/flowies</code></td>
+      </tr>
+      <tr>
+        <td><code>-r</code></td>
+        <td><code>--random</code></td>
+        <td>Select random character</td>
+        <td><code>-r</code></td>
+      </tr>
+      <tr>
+        <td><code>-l</code></td>
+        <td><code>--list</code></td>
+        <td>List available characters</td>
+        <td><code>-l</code></td>
+      </tr>
+      <tr>
+        <td><code>-q</code></td>
+        <td><code>--quiet</code></td>
+        <td>Run quietly (no message box)</td>
+        <td><code>-q</code></td>
+      </tr>
+      <tr>
+        <td><code>-g</code></td>
+        <td><code>--generate</code></td>
+        <td>Generate new character file</td>
+        <td><code>-g</code></td>
+      </tr>
+      <tr>
+        <td><code>-v</code></td>
+        <td><code>--version</code></td>
+        <td>Show version information</td>
+        <td><code>-v</code></td>
+      </tr>
+      <tr>
+        <td><code>-h</code></td>
+        <td><code>--help</code></td>
+        <td>Show help message</td>
+        <td><code>-h</code></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>🔧 Advanced Usage</h2>
+
+  <div class="command-section">
+    <h3>List Available Characters</h3>
+    <p>See what characters you have installed:</p>
+    <pre><code>flowey --list</code></pre>
+    
+    <div class="example-box">
+      <h4>Example Output:</h4>
+      <pre><code>Available characters:
+- flowey
+- sans
+- papyrus
+- toriel
+- asgore
+- frisk</code></pre>
+    </div>
+  </div>
+
+  <div class="command-section">
+    <h3>Custom Assets Directory</h3>
+    <p>Specify a custom location for character files:</p>
+    <pre><code>flowey -a /path/to/custom/flowies "message"</code></pre>
+  </div>
+
+  <div class="command-section">
+    <h3>Quiet Mode</h3>
+    <p>Show only the character art without the message box:</p>
+    <pre><code>flowey -q -c flowey</code></pre>
+  </div>
+
+  <div class="command-section">
+    <h3>Reading from STDIN</h3>
+    <p>Pipe text to Flowey:</p>
+    <pre><code>echo "Hello from the Underground!" | flowey
+cat message.txt | flowey -c sans</code></pre>
+  </div>
+
+  <h2>🎨 Creating Custom Characters</h2>
+
+  <div class="command-section">
+    <h3>Generate Character from Image</h3>
+    <p>Create new character files from images (requires <code>chafa</code>):</p>
+    <pre><code>flowey --generate</code></pre>
+    
+    <div class="tip-box">
+      <h4>💡 Tip:</h4>
+      <p>Install <code>chafa</code> first:</p>
+      <pre><code># Ubuntu/Debian
+sudo apt install chafa
+
+# Arch Linux
+sudo pacman -S chafa
+
+# macOS
+brew install chafa</code></pre>
+    </div>
+    
+    <p>The generator will prompt you for:</p>
+    <ul>
+      <li><strong>Image path</strong>: Path to your source image</li>
+      <li><strong>Output file</strong>: Name for the .flowey file</li>
+      <li><strong>Author</strong>: Your name (optional)</li>
+    </ul>
+  </div>
+
+  <h2>💡 Pro Tips</h2>
+
+  <div class="tip-box">
+    <h3>🌟 Useful Tricks</h3>
+    
+    <h4>Create Aliases</h4>
+    <p>Add to your <code>~/.bashrc</code> or <code>~/.zshrc</code>:</p>
+    <pre><code>alias flowey-sans='flowey -c sans'
+alias flowey-papyrus='flowey -c papyrus'
+alias flowey-random='flowey -r'</code></pre>
+    
+    <h4>Fortune Integration</h4>
+    <p>Combine with <code>fortune</code> for random quotes:</p>
+    <pre><code>fortune | flowey -c sans</code></pre>
+    
+    <h4>Daily Quote</h4>
+    <p>Add to your shell startup file:</p>
+    <pre><code>flowey -r</code></pre>
+    
+    <h4>Git Integration</h4>
+    <p>Use in your commit hooks:</p>
+    <pre><code>#!/bin/bash
+git log -1 --pretty=%s | flowey -c flowey</code></pre>
+  </div>
+
+  <h2>📚 Examples Gallery</h2>
+
+  <div class="example-box">
+    <h3>Character Showcase</h3>
+    <pre><code># Flowey being devious
+flowey -c flowey "In this world, it's kill or be killed!"
+
+# Sans with his classic line
+flowey -c sans "it's a beautiful day outside..."
+
+# Papyrus being confident
+flowey -c papyrus "I, THE GREAT PAPYRUS, WILL CAPTURE A HUMAN!"
+
+# Toriel being motherly
+flowey -c toriel "Stay safe, my child."
+
+# Asgore being formal
+flowey -c asgore "Human... it was nice to meet you."
+
+# Frisk staying determined
+flowey -c frisk "* You are filled with determination."</code></pre>
+  </div>
+
+  <div style="text-align: center; margin: 40px 0; padding: 20px; border: 1px solid #fff; background-color: #111;">
+    <p><em>"You feel like you understand Flowey a little better now."</em></p>
+  </div>
+</div>
