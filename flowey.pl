@@ -165,18 +165,13 @@ our $path = $opt->assets;
 
 # Message from command line arguments or random selection
 my $msg;
-# if (@ARGV) {
-#     $msg = "@ARGV";
-# } else {
-#     $msg = $rand_msg[rand @rand_msg];
-# }
-
 if (@ARGV) {
     chomp($msg = "@ARGV");
 } elsif (!-t STDIN) {
-    # local $/; # slurp mode. 
+    local $/; 
     $msg = <STDIN>;
     chomp $msg if defined $msg;
+    $msg =~ s/^\s+|\s+$//g;
 } else {
     $msg = $rand_msg[ int(rand @rand_msg) ];
 }
