@@ -10,9 +10,10 @@ our $VERSION = '1.0.0';
 my ($opt, $usage) = describe_options(
     "flowey %o <message>",
     [ "assets|a=s",    "Set assets directory.", { default => "/usr/share/flowey" } ],
-    [ "character|c=s", "Set character.", { default => "ferris" } ],
+    [ "character|c=s", "Set character." ],
     [ "generate|g",    "Generate a new character file" ],
     [ "quiet|q",       "Run quietly" ],
+    [ "random|r",      "Select random character." ],
     [ "version|v",     "Show version information" ],
     [ "help|h",        "Show this help message" ],
 );
@@ -25,6 +26,13 @@ if ($opt->{help}) {
     print "flowey version $VERSION\n";
     exit(0);
 } elsif ($opt->{generate}) {
+    use File::Which qw(which);
+
+    my $chafa = which('chafa');
+    if (!$chafa) {
+        die("'chafa' is required to generate character files. Please install it.");
+    }
+
     my @goodbyes = (
         "You're gonna carry that weight.",
         "Stay determined!",
@@ -134,15 +142,34 @@ if (@ARGV) {
 # It searches for a file named "<character>.flowey" or just "<character>"
 # and sets the variable $meta_file to its path.
 my $meta_file;
-find(
-    sub {
-        if ($_ eq $opt->character . ".flowey" or $_ eq $opt->character) {
-            $meta_file = "$File::Find::name";
-            $File::Find::prune = 1;
-        }
-    },
-    $path
-);
+if ($opt->random or $opt->character || "" eq 'random' or $opt->character || "" eq '') {
+    my @candidates;
+
+    find(
+        sub {
+            return unless -f $_;
+            return unless /\.flowey$/;
+            push @candidates, $File::Find::name;
+        },
+        $path
+    );
+
+    if (@candidates) {
+        $meta_file = $candidates[rand @candidates];
+    } else {
+        die("No character files found in '$path'.");
+    }
+} else {
+    find(
+        sub {
+            if ($_ eq $opt->character . ".flowey" or $_ eq $opt->character) {
+                $meta_file = "$File::Find::name";
+                $File::Find::prune = 1;
+            }
+        },
+        $path
+    );
+}
 
 die("Character file not found in '$path'") unless $meta_file;
 if (!-f $meta_file) {
@@ -159,14 +186,13 @@ parse_section($meta_file, "data");
 # subroutine to pretty print a message
 sub pretty_print {
     my $text = shift;
+    return unless defined $text;
 
-    if (defined $text) {
-        my $width = length($text) + 2;
+    my $width = length($text) + 2;
 
-        print " " . "_" x $width . "\n";
-        print "|" . " $text " . "|\n";
-        print "|" . "_" x $width . "|\n";
-    }
+    print " " . "_" x $width . "\n";
+    print "|" . " $text " . "\|\n";
+    print "\|" . "_" x $width . "|\n";
 }
 
 # subroutine to parse a section from a file
