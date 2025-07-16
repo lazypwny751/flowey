@@ -11,15 +11,71 @@
   --soul-yellow: #ffff00;     /* Justice */
 }
 
+/* Animated falling stars background effect */
+@keyframes falling-stars {
+  0% {
+    transform: translateY(-100vh) translateX(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh) translateX(-100px);
+    opacity: 0;
+  }
+}
+
+.star {
+  position: fixed;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  z-index: -1;
+  animation: falling-stars 8s linear infinite;
+}
+
+.star:nth-child(1) { left: 10%; animation-delay: 0s; animation-duration: 8s; }
+.star:nth-child(2) { left: 20%; animation-delay: 1s; animation-duration: 9s; }
+.star:nth-child(3) { left: 30%; animation-delay: 2s; animation-duration: 7s; }
+.star:nth-child(4) { left: 40%; animation-delay: 3s; animation-duration: 10s; }
+.star:nth-child(5) { left: 50%; animation-delay: 0.5s; animation-duration: 8.5s; }
+.star:nth-child(6) { left: 60%; animation-delay: 1.5s; animation-duration: 9.5s; }
+.star:nth-child(7) { left: 70%; animation-delay: 2.5s; animation-duration: 7.5s; }
+.star:nth-child(8) { left: 80%; animation-delay: 3.5s; animation-duration: 8s; }
+.star:nth-child(9) { left: 90%; animation-delay: 4s; animation-duration: 9s; }
+
+/* Pixel art grid overlay */
+.pixel-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 8px 8px;
+  pointer-events: none;
+  z-index: -1;
+  animation: pixel-drift 20s linear infinite;
+}
+
+@keyframes pixel-drift {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(8px, 8px); }
+}
+
 /* Battle box styling for code blocks */
 .battle-box {
   background: #000;
   border: 4px solid #fff;
   padding: 1rem;
-  font-family: 'Courier New', monospace;
+  font-family: 'Pixel', 'Courier New', monospace;
   color: #fff;
   margin: 1rem 0;
   position: relative;
+  box-shadow: 
+    inset 0 0 0 2px #000,
+    0 0 20px rgba(255, 255, 255, 0.3);
 }
 
 .battle-box::before {
@@ -29,162 +85,297 @@
   top: 0.5rem;
   left: 0.5rem;
   font-size: 1.2rem;
+  animation: soul-pulse 1.5s ease-in-out infinite;
 }
 
-/* Flowey's special text boxes */
+@keyframes soul-pulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.8; }
+}
+
+/* Flowey's special text boxes with animated border */
 .flowey-textbox {
   background: linear-gradient(135deg, #2d5016, #4a7c23);
-  border: 3px solid #fcff4a;
+  border: 4px solid #fcff4a;
   padding: 1.5rem;
   margin: 1.5rem 0;
-  border-radius: 10px;
+  border-radius: 0;
   color: #f4e4bc;
   position: relative;
+  font-family: 'Pixel', 'Courier New', monospace;
+  box-shadow: 
+    0 0 0 2px #000,
+    0 0 20px rgba(252, 255, 74, 0.4);
 }
 
 .flowey-textbox::before {
   content: "🌻";
   position: absolute;
-  top: -15px;
+  top: -20px;
   left: 20px;
-  background: inherit;
+  background: linear-gradient(135deg, #2d5016, #4a7c23);
   padding: 0 10px;
   font-size: 1.5rem;
+  border: 2px solid #fcff4a;
+  animation: flowey-evil-grin 4s ease-in-out infinite;
 }
 
-/* Sans's lazy style boxes */
+@keyframes flowey-evil-grin {
+  0%, 90%, 100% { transform: rotate(0deg) scale(1); }
+  95% { transform: rotate(15deg) scale(1.1); }
+}
+
+/* Sans's lazy style boxes with pixel effects */
 .sans-box {
   background: #87ceeb;
-  border-left: 5px solid #4682b4;
+  border: 4px solid #4682b4;
+  border-style: dotted;
   padding: 1rem;
   margin: 1rem 0;
   font-style: italic;
   color: #2f4f4f;
+  font-family: 'Pixel', 'Courier New', monospace;
+  position: relative;
+  text-transform: lowercase;
 }
 
 .sans-box::before {
   content: "💀 ";
   font-style: normal;
+  animation: sans-wink 6s ease-in-out infinite;
 }
 
-/* Papyrus's enthusiastic boxes */
+@keyframes sans-wink {
+  0%, 95%, 100% { opacity: 1; }
+  97.5% { opacity: 0.3; }
+}
+
+/* Papyrus's enthusiastic boxes with excitement effect */
 .papyrus-box {
   background: linear-gradient(45deg, #ffa500, #ff8c00);
-  border: 3px solid #ff6347;
+  border: 4px solid #ff6347;
   padding: 1.5rem;
   margin: 1.5rem 0;
   text-transform: uppercase;
   font-weight: bold;
   color: white;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 0px #000;
   text-align: center;
+  font-family: 'Pixel', 'Courier New', monospace;
+  animation: papyrus-excitement 2s ease-in-out infinite;
+  position: relative;
+}
+
+@keyframes papyrus-excitement {
+  0%, 100% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.02) rotate(-1deg); }
+  50% { transform: scale(1.01) rotate(0deg); }
+  75% { transform: scale(1.02) rotate(1deg); }
 }
 
 .papyrus-box::before {
   content: "🍝 THE GREAT PAPYRUS SAYS: ";
   display: block;
   margin-bottom: 0.5rem;
+  animation: papyrus-bounce 1s ease-in-out infinite;
 }
 
-/* Toriel's caring style */
+@keyframes papyrus-bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-2px); }
+}
+
+/* Toriel's caring style with warm glow */
 .toriel-box {
   background: linear-gradient(135deg, #f0e68c, #daa520);
-  border: 3px solid #b8860b;
+  border: 4px solid #b8860b;
   padding: 1.5rem;
   margin: 1.5rem 0;
-  border-radius: 15px;
+  border-radius: 0;
   color: #8b4513;
   font-style: italic;
+  font-family: 'Pixel', 'Courier New', monospace;
+  box-shadow: 0 0 15px rgba(218, 165, 32, 0.4);
+  position: relative;
 }
 
 .toriel-box::before {
   content: "🐐 ";
   font-style: normal;
   font-size: 1.2rem;
+  animation: toriel-warm-glow 3s ease-in-out infinite;
 }
 
-/* Asgore's royal style */
+@keyframes toriel-warm-glow {
+  0%, 100% { filter: brightness(1); }
+  50% { filter: brightness(1.3); }
+}
+
+/* Asgore's royal style with regal animation */
 .asgore-box {
   background: linear-gradient(135deg, #800080, #4b0082);
-  border: 3px solid #daa520;
+  border: 4px solid #daa520;
   padding: 2rem;
   margin: 2rem 0;
   color: #f4e4bc;
   text-align: center;
-  border-radius: 10px;
+  border-radius: 0;
+  font-family: 'Pixel', 'Courier New', monospace;
+  position: relative;
+  box-shadow: 
+    0 0 0 2px #000,
+    0 0 25px rgba(128, 0, 128, 0.5);
 }
 
 .asgore-box::before {
   content: "👑 ";
   font-size: 1.5rem;
+  animation: crown-shimmer 4s ease-in-out infinite;
 }
 
-/* Frisk's determination style */
+@keyframes crown-shimmer {
+  0%, 100% { 
+    text-shadow: 0 0 5px rgba(218, 165, 32, 0.8);
+    transform: scale(1);
+  }
+  50% { 
+    text-shadow: 0 0 15px rgba(218, 165, 32, 1);
+    transform: scale(1.1);
+  }
+}
+
+/* Frisk's determination style with soul effect */
 .frisk-box {
   background: linear-gradient(135deg, #ff6b6b, #feca57);
-  border: 3px solid #fff;
+  border: 4px solid #fff;
   padding: 1.5rem;
   margin: 1.5rem 0;
   color: white;
   font-weight: bold;
   text-align: center;
-  border-radius: 10px;
-  box-shadow: 0 0 20px rgba(255, 107, 107, 0.3);
+  border-radius: 0;
+  box-shadow: 
+    0 0 0 2px #000,
+    0 0 30px rgba(255, 107, 107, 0.6);
+  font-family: 'Pixel', 'Courier New', monospace;
+  animation: determination-aura 3s ease-in-out infinite;
+}
+
+@keyframes determination-aura {
+  0%, 100% { 
+    box-shadow: 
+      0 0 0 2px #000,
+      0 0 30px rgba(255, 107, 107, 0.6);
+  }
+  50% { 
+    box-shadow: 
+      0 0 0 2px #000,
+      0 0 50px rgba(255, 107, 107, 0.9);
+  }
 }
 
 .frisk-box::before {
   content: "👤 * ";
   font-weight: normal;
+  animation: soul-determination 2s ease-in-out infinite;
 }
 
-/* Determination button effect */
+@keyframes soul-determination {
+  0%, 100% { color: white; }
+  50% { color: var(--soul-red); }
+}
+
+/* Enhanced determination button with pixel effects */
 .determination-btn {
   background: linear-gradient(45deg, var(--soul-red), #ff6b6b);
   color: white;
-  border: 3px solid white;
+  border: 4px solid white;
   padding: 1rem 2rem;
   font-size: 1.1rem;
   font-weight: bold;
   text-decoration: none;
   display: inline-block;
-  border-radius: 5px;
+  border-radius: 0;
   transition: all 0.3s ease;
-  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  text-shadow: 2px 2px 0px #000;
+  font-family: 'Pixel', 'Courier New', monospace;
+  text-transform: uppercase;
+  position: relative;
+  overflow: hidden;
+}
+
+.determination-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.determination-btn:hover::before {
+  left: 100%;
 }
 
 .determination-btn:hover {
   background: linear-gradient(45deg, #ff6b6b, var(--soul-red));
   transform: translateY(-2px);
-  box-shadow: 0 5px 15px rgba(255, 0, 0, 0.3);
+  box-shadow: 
+    0 0 0 2px #000,
+    0 5px 15px rgba(255, 0, 0, 0.5);
   color: white;
 }
 
-/* SAVE point styling */
+/* Enhanced SAVE point with more dramatic animation */
 .save-point {
   background: radial-gradient(circle, #ffff00, #ffd700);
-  border: 3px solid #ffa500;
+  border: 4px solid #ffa500;
   padding: 1rem;
   margin: 2rem 0;
   text-align: center;
-  border-radius: 50%;
+  border-radius: 0;
   width: 200px;
   height: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 2rem auto;
-  box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
-  animation: pulse-save 3s infinite;
+  box-shadow: 
+    0 0 0 2px #000,
+    0 0 30px rgba(255, 255, 0, 0.7);
+  animation: pulse-save-enhanced 3s infinite;
+  font-family: 'Pixel', 'Courier New', monospace;
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
 }
 
-@keyframes pulse-save {
+.save-point::before {
+  content: '⭐';
+  position: absolute;
+  font-size: 2rem;
+  animation: star-rotate 8s linear infinite;
+}
+
+@keyframes star-rotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes pulse-save-enhanced {
   0%, 100% { 
-    box-shadow: 0 0 30px rgba(255, 255, 0, 0.5);
+    box-shadow: 
+      0 0 0 2px #000,
+      0 0 30px rgba(255, 255, 0, 0.7);
     transform: scale(1);
   }
   50% { 
-    box-shadow: 0 0 50px rgba(255, 255, 0, 0.8);
-    transform: scale(1.05);
+    box-shadow: 
+      0 0 0 2px #000,
+      0 0 60px rgba(255, 255, 0, 1);
+    transform: scale(1.1);
   }
 }
 
