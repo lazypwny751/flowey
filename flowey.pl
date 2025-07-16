@@ -142,7 +142,8 @@ if (@ARGV) {
 # It searches for a file named "<character>.flowey" or just "<character>"
 # and sets the variable $meta_file to its path.
 my $meta_file;
-if ($opt->random or $opt->character || "" eq 'random' or $opt->character || "" eq '') {
+my $_charEq = $opt->character || '';
+if ($opt->random or $_charEq eq '') {
     my @candidates;
 
     find(
