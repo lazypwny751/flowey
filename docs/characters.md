@@ -175,9 +175,9 @@ permalink: /characters/
   </div>
 
   <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/installation/">Installation</a>
-    <a href="/usage/">Usage</a>
+    <a href="/flowey">Home</a>
+    <a href="/flowey/installation/">Installation</a>
+    <a href="/flowey/usage/">Usage</a>
   </div>
 
   <!-- Flowey -->

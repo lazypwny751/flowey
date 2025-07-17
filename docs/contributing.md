@@ -98,10 +98,10 @@ permalink: /contributing/
   </div>
 
   <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/installation/">Installation</a>
-    <a href="/usage/">Usage</a>
-    <a href="/characters/">Characters</a>
+    <a href="/flowey">Home</a>
+    <a href="/flowey/installation/">Installation</a>
+    <a href="/flowey/usage/">Usage</a>
+    <a href="/flowey/characters/">Characters</a>
   </div>
 
   <div style="text-align: center; margin: 30px 0; padding: 20px; border: 1px solid #fff; background-color: #111;">

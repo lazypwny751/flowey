@@ -98,9 +98,9 @@ permalink: /installation/
   </div>
 
   <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/usage/">Usage</a>
-    <a href="/characters/">Characters</a>
+    <a href="/flowey">Home</a>
+    <a href="/flowey/usage/">Usage</a>
+    <a href="/flowey/characters/">Characters</a>
   </div>
 
   <div class="requirements-box">

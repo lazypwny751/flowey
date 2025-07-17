@@ -108,9 +108,9 @@ permalink: /usage/
   </div>
 
   <div class="nav-links">
-    <a href="/">Home</a>
-    <a href="/installation/">Installation</a>
-    <a href="/characters/">Characters</a>
+    <a href="/flowey">Home</a>
+    <a href="/flowey/installation/">Installation</a>
+    <a href="/flowey/characters/">Characters</a>
   </div>
 
   <h2>📝 Basic Usage</h2>

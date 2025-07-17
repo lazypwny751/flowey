@@ -266,10 +266,4 @@ flowey --generate</code></pre>
   <div class="quote-box">
     <p>"Stay determined!"</p>
   </div>
-
-  <div class="footer">
-    <p>Made with ❤️ and determination<br>
-    Inspired by <strong>Undertale</strong> by Toby Fox<br>
-    Licensed under GNU GPLv3</p>
-  </div>
 </div>
